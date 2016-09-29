@@ -1,2 +1,2 @@
-# tajmik
+# Tajmik
 Tajmik- time manager 
