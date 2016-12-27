@@ -22,7 +22,7 @@ schema.pre('save', function(next){
 				next();
 			});
 		});
-	}else{
+	} else {
 		return next();
 	}
 });

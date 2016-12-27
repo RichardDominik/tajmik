@@ -28,14 +28,57 @@ app.use(passport.initialize());
 mongoose.connect(config.database);
 let db = mongoose.connection;
 
-
+// User schema 
 let User = require('./models/user');
+// Profile schema
+let Profile = require('./models/profile');
+// Task schema 
+let Task = require('./models/task');
 
 
 db.on('error', console.error.bind(console, 'connection error:'));
 
 db.once('open', () => {
     console.log('Connected to MongoDB');
+
+    //create information about user (firstName, lastName, city and country)
+    app.post('/api/profile', (req, res) => {
+        if(!req.body.firstName || !req.body.lastName || !req.body.city || !req.body.country){
+            res.json({success: false, msg: 'Please pass information about you.'})
+        }
+
+        let newProfile = new Profile({
+            firstName: req.body.firstName, 
+            lastName: req.body.lastName,
+            city: req.body.city,
+            country: req.body.country
+        });
+
+        newProfile.save((err) => {
+            if (err) {
+                return res.json({error: err});
+            }
+            res.json({success: true, msg: 'Successful created new profile.'});
+        });
+    });
+
+    // create user tasks
+    app.post('/api/task', (req, res) => {
+        if(!req.body.text){
+            res.json({success: false, msg: 'Please pass task to form'})
+        }
+
+        let newTask = new Task({
+            text: req.body.text
+        });
+
+        newTask.save((err) => {
+            if (err) {
+                return res.json({error: err});
+            }
+            res.json({success: true, msg: 'Successful created new task.'});
+        });
+    });
 
     //AUTHENTICATION
     // create a new user account
@@ -59,7 +102,7 @@ db.once('open', () => {
             // create user in database
             let newUser = new User({
               email: req.body.email,
-              password: req.body.password
+              password: req.body.password,
             });
             // save the user to database
             newUser.save((err) => {

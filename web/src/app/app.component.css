@@ -1,9 +1,31 @@
-img {
-	width: 200px;
-	height: auto;
+.navbar img {
+	height: 35px;
+	width: auto;
 }
 
-a {
-	font-size: 1em;
-	margin-top: 5px;
+.nav_background {
+	background-color: #fff;
+}
+
+.btn {
+  color: #fff !important;
+  background-color: #20d7af;
+  text-decoration: none;
+  border-radius: 0 !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+  margin-top: 5px;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.float-xs-left {
+	margin-left: 25px !important;
+}
+
+.navbar a {
+	font-size: 0.9em !important;
+	line-height: 2 !important;
 }

@@ -2,7 +2,7 @@
 Tajmik- time manager 
  
 Run `npm install` for install all dependencies. 
-Run `mongod` for running database.
+Run `monngod` for running database.
 Run `node server.js` for running server.
 Run `npm start` for running angular.
 Navigate to `http://localhost:4200/`.

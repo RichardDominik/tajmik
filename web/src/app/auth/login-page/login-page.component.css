@@ -1,0 +1,37 @@
+.signin{
+	width: 100%;
+	height: 100vh;
+	background-color: #F7F7F7;
+	display: -ms-flexbox;
+	display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
+}
+
+.signin label {
+	font-size: 0.9em;
+	margin-bottom: 0rem;
+}
+
+.signin input {
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-bottom: 1px solid #666;
+	background: none;
+	border-radius: 0px;
+	padding: 8px 0px; 
+}
+
+button {
+	background: #20D7AF;
+	color: #fff;
+	border-radius: 25px;
+	margin-top: 5px;
+}
+
+button:focus {
+	outline: 0 !important;
+}

@@ -1,22 +1,21 @@
-<nav class="navbar navbar-default">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a routerLink="/" class="navbar-brand">MEAN Authentication</a>
-		</div>
-	</div>
-	<div class="container-fluid">
-	<ul class="nav navbar-nav">
-		<li><a routerLink="/private">Private</a></li>
-		<li *ngIf="!isLogged"><a routerLink="/signup">Sign Up</a></li>
-		<li *ngIf="!isLogged"><a routerLink="/signin">Sign In</a></li>
-		<li *ngIf="isLogged"><a routerLink="/profile">Profile</a></li>
-		<li *ngIf="isLogged"><a routerLink="/task_manager">Task Manager</a></li>
-		<li *ngIf="isLogged"><a routerLink="/event_manager">Event Manager</a></li>
-		<li *ngIf="isLogged"><a (click)="logout()">Logout</a></li>
-	</ul>
+<nav class="navbar navbar-light nav_background navbar-fixed-top">
+	<div class="container">
+		<a class="navbar-brand" routerLink="/"><img src="../img/main_logo.png" class="logo" alt="logo"></a>
+		<ul class="nav navbar-nav float-xs-left ">
+			<li class="nav-item" *ngIf="!isLogged"><a class="nav-link">EXPLORE</a></li>
+			<li class="nav-item" *ngIf="!isLogged"><a class="nav-link">OUR APP</a></li>
+		</ul>
+		<ul class="nav navbar-nav float-xs-right">
+			<li class="nav-item" *ngIf="isLogged"><a class="nav-link" routerLink="/private">Private</a></li>
+			<li class="nav-item" *ngIf="!isLogged"><a class="nav-link" routerLink="/signin">SIGN IN</a></li>
+			<li class="nav-item" *ngIf="!isLogged"><a class="nav-link btn" routerLink="/signup">SIGN UP</a></li>
+			<li class="nav-item" *ngIf="isLogged"><a class="nav-link" routerLink="/profile">Profile</a></li>
+			<li class="nav-item" *ngIf="isLogged"><a class="nav-link" routerLink="/task_manager">Task Manager</a></li>
+			<li class="nav-item" *ngIf="isLogged"><a class="nav-link" routerLink="/event_manager">Event Manager</a></li>
+			<li class="nav-item" *ngIf="isLogged"><a class="nav-link" (click)="logout()">Logout</a></li>
+		</ul>
 	</div>
 </nav>
-
-<div class="col-xs-12">
-  <router-outlet></router-outlet>
+<div>
+	<router-outlet></router-outlet>
 </div>
