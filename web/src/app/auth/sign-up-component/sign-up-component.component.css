@@ -48,9 +48,8 @@ button:focus {
 p a {
 	color: #20D7AF;
 	text-decoration: none;
-	font-weight: bold;
 }
 
-p span {
-	color: #20D7AF;
+span {
+	font-weight: bold;
 }

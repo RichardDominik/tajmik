@@ -1,21 +1,27 @@
-<nav class="navbar navbar-light nav_background navbar-fixed-top">
+<nav class="navbar navbar-light nav_background navbar-fixed-top" *ngIf="!isLogged">
 	<div class="container">
 		<a class="navbar-brand" routerLink="/"><img src="../img/main_logo.png" class="logo" alt="logo"></a>
 		<ul class="nav navbar-nav float-xs-left ">
-			<li class="nav-item" *ngIf="!isLogged"><a class="nav-link">EXPLORE</a></li>
-			<li class="nav-item" *ngIf="!isLogged"><a class="nav-link">OUR APP</a></li>
+			<li class="nav-item"><a class="nav-link">EXPLORE</a></li>
+			<li class="nav-item"><a class="nav-link">OUR APP</a></li>
 		</ul>
 		<ul class="nav navbar-nav float-xs-right">
-			<li class="nav-item" *ngIf="isLogged"><a class="nav-link" routerLink="/private">Private</a></li>
-			<li class="nav-item" *ngIf="!isLogged"><a class="nav-link" routerLink="/signin">SIGN IN</a></li>
-			<li class="nav-item" *ngIf="!isLogged"><a class="nav-link btn" routerLink="/signup">SIGN UP</a></li>
-			<li class="nav-item" *ngIf="isLogged"><a class="nav-link" routerLink="/profile">Profile</a></li>
-			<li class="nav-item" *ngIf="isLogged"><a class="nav-link" routerLink="/task_manager">Task Manager</a></li>
-			<li class="nav-item" *ngIf="isLogged"><a class="nav-link" routerLink="/event_manager">Event Manager</a></li>
-			<li class="nav-item" *ngIf="isLogged"><a class="nav-link" (click)="logout()">Logout</a></li>
+			<li class="nav-item"><a class="nav-link" routerLink="/signin">SIGN IN</a></li>
+			<li class="nav-item"><a class="nav-link btn" routerLink="/signup">SIGN UP</a></li>
 		</ul>
 	</div>
 </nav>
-<div>
+<div *ngIf="isLogged">
+<div class="nav_top">
+</div>
+<nav id="mySidenav" class="sidenav" >
+	<a class="nav-link" routerLink="/private"><i class="material-icons">dashboard</i>Dashboard</a>
+	<a class="nav-link" routerLink="/profile"><i class="material-icons">person_outline</i>Profile</a>
+	<a class="nav-link" routerLink="/task_manager"><i class="material-icons">done</i>Task Manager</a>
+	<a class="nav-link" routerLink="/event_manager"><i class="material-icons">event</i>Event Manager</a>
+	<a class="nav-link logout" (click)="logout()"><i class="material-icons">input</i>Logout</a>
+</nav>
+</div>
+<div [ngClass]="{content: isLogged}">
 	<router-outlet></router-outlet>
 </div>

@@ -1,13 +1,12 @@
-<div class="container">
-<h3>Private</h3>
-
-<div *ngIf="!isLogged" class="alert alert-danger">
-	<p>You can't see this content. You need to be logged to see it</p>
+<div class="private_bg">
+	<div class="container">
+		<h3>Private</h3>
+		<div *ngIf="!isLogged" class="alert alert-danger">
+			<p>You can't see this content. You need to be logged to see it</p>
+		</div>
+		<div *ngIf="isLogged" class="alert alert-success">
+			<p>Hello you are logged</p>
+			<p>Your email is {{tokenEmail}}</p>
+		</div>
+	</div>
 </div>
-
-<div *ngIf="isLogged" class="alert alert-success">
-	<p>Hello you are logged</p>
-	<p>Your email is {{tokenEmail}}</p>
-</div>
-</div>
-
