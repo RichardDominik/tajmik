@@ -30,7 +30,6 @@
 	line-height: 2 !important;
 }
 
-/* The side navigation menu */
 .sidenav {
     height: 100%; 
     width: 225px;
@@ -40,22 +39,28 @@
     left: 0;
     background-color: #363F45;
     overflow-x: hidden; 
-    padding-top: 60px; /* Place content 60px from the top */
+    padding-top: 100px; /* Place content 60px from the top */
 }
 
 /* The navigation menu links */
 .sidenav a {
-    padding: 8px 20px 8px 32px;
+    display: flex; 
+    padding: 8px 40px 8px 32px;
     text-decoration: none;
     font-size: 1em;
-    color: #818181;
-    display: block;
+    color: #B9BBBE;
     transition: 0.3s
 }
 
 /* When you mouse over the navigation links, change their color */
-.sidenav a:hover, .offcanvas a:focus{
+.sidenav a:hover, .offcanvas a:focus a:active{
     color: #f1f1f1;
+    background-color: #3E464C;
+}
+
+.active {
+  color: #f1f1f1 !important;
+  background-color: #3E464C;
 }
 
 .logout {

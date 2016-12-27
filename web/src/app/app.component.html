@@ -12,15 +12,15 @@
 	</div>
 </nav>
 <div *ngIf="isLogged">
-<div class="nav_top">
-</div>
-<nav id="mySidenav" class="sidenav" >
-	<a class="nav-link" routerLink="/private"><i class="material-icons">dashboard</i>Dashboard</a>
-	<a class="nav-link" routerLink="/profile"><i class="material-icons">person_outline</i>Profile</a>
-	<a class="nav-link" routerLink="/task_manager"><i class="material-icons">done</i>Task Manager</a>
-	<a class="nav-link" routerLink="/event_manager"><i class="material-icons">event</i>Event Manager</a>
-	<a class="nav-link logout" (click)="logout()"><i class="material-icons">input</i>Logout</a>
-</nav>
+	<div class="nav_top">
+	</div>
+	<nav id="mySidenav" class="sidenav" >
+		<a class="nav-link" [routerLinkActive]="['active']" routerLink="/private"><i class="material-icons">dashboard</i>Dashboard</a>
+		<a class="nav-link" [routerLinkActive]="['active']" routerLink="/profile"><i class="material-icons">person_outline</i>Profile</a>
+		<a class="nav-link" [routerLinkActive]="['active']" routerLink="/task_manager"><i class="material-icons">done</i>Task Manager</a>
+		<a class="nav-link" [routerLinkActive]="['active']" routerLink="/event_manager"><i class="material-icons">event</i>Event Manager</a>
+		<a class="nav-link logout" (click)="logout()"><i class="material-icons">input</i>Logout</a>
+	</nav>
 </div>
 <div [ngClass]="{content: isLogged}">
 	<router-outlet></router-outlet>

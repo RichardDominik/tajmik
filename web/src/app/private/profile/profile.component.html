@@ -1,5 +1,8 @@
 <div class="profile_bg">
-	<div class="container col-xs-6">
+	<div class="container" *ngIf="!isLogged" class="alert alert-danger">
+		<p>You can't see this content. You need to be logged to see it</p>
+	</div>
+	<div *ngIf="isLogged" class="container col-xs-6">
 		<img src="../../../img/user_icon.svg" alt="User">
 		<p>{{tokenEmail}}</p>
 		<p>Name: {{ first_name }} {{ last_name }} </p>
