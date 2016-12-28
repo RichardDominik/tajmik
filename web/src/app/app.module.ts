@@ -18,9 +18,11 @@ import { PrivateComponent } from './private/private.component';
 import { ProfileComponent } from './private/profile/profile.component';
 import { TaskManagerComponent } from './private/task-manager/task-manager.component';
 import { EventManagerComponent } from './private/event-manager/event-manager.component';
+import { WeatherComponent } from './private/weather/weather.component';
 
 //providers
 import { AuthService } from './auth/auth.service';
+
 
 
 
@@ -33,7 +35,8 @@ import { AuthService } from './auth/auth.service';
     PrivateComponent,
     ProfileComponent,
     TaskManagerComponent,
-    EventManagerComponent
+    EventManagerComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
