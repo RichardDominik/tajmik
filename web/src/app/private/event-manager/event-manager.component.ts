@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-event-manager',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventManagerComponent implements OnInit {
 
-  constructor() { }
+	isLogged: boolean;
+	
+  	constructor(private appComponent: AppComponent) {
+  		this.isLogged = this.appComponent.isLogged;
+   	}
 
-  ngOnInit() {
-  }
-
+  	ngOnInit() {
+  	}
 }

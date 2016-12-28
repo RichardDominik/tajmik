@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
-import { Subscription } from 'rxjs/Rx';
-import { JwtHelper } from 'angular2-jwt';
-
-import { AuthService } from './../../auth/auth.service';
-
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-profile',
@@ -12,21 +7,15 @@ import { AuthService } from './../../auth/auth.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-	isLogged: boolean;
 
-	jwtHelper: JwtHelper = new JwtHelper();
-	token: string;
-	tokenDecoded: Object;
+	isLogged: boolean;
 	tokenEmail: string;
 
-  	constructor(private authService: AuthService) {}
+   constructor(private appComponent: AppComponent) {
+      this.isLogged = this.appComponent.isLogged;
+      this.tokenEmail= this.appComponent.tokenEmail;
+     }
 
-  	ngOnInit() {
-  		this.isLogged = this.authService.isAuthenticate();
-  		if(this.isLogged){
-  			this.token = localStorage.getItem('token');
-  			this.tokenDecoded = this.jwtHelper.decodeToken(this.token);
-  			this.tokenEmail = this.tokenDecoded['email'];
-  		}
-  	}
+    ngOnInit() {
+    }
 }

@@ -1,7 +1,12 @@
 <div class="task_bg">
 	<div class="container">
-		<p>
-			task-manager works!
-		</p>
+		<div *ngIf="!isLogged" class="alert alert-danger">
+			<p>You can't see this content. You need to be logged to see it</p>
+		</div>
+		<div *ngIf="isLogged">
+			<p>
+				task-manager works!
+			</p>
+		</div>
 	</div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-task-manager',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskManagerComponent implements OnInit {
 
-  constructor() { }
+	isLogged: boolean;
 
-  ngOnInit() {
-  }
+  	constructor(private appComponent: AppComponent) {
+  		this.isLogged = this.appComponent.isLogged;
+   	}
 
+  	ngOnInit() {
+  	}
 }
