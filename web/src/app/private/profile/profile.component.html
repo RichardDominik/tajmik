@@ -3,10 +3,28 @@
 		<p>You can't see this content. You need to be logged to see it</p>
 	</div>
 	<div *ngIf="isLogged" class="container col-md-6">
-		<img src="../../../img/user_icon.svg" alt="User">
+		<p><i class="material-icons">account_circle</i></p>
 		<p>{{tokenEmail}}</p>
-		<p>Name: {{ first_name }} {{ last_name }} </p>
-		<p>Location: {{ city }}, {{ country }}</p>
+		
+	<div>
+		<i class="material-icons">email</i>
+		<p>Email: test@test.com</p>
+	</div>
+		
+		<p>Name: Test</p>
+		<p>Surname: Test</p>
+		<div>
+			<i class="material-icons">phone</i>
+			<p>Phone: 0900 000 000</p>
+		</div>
+		
+		
+		<p>Address: Test 455</p>
+		<p>City: Test</p>
+		<p>Country: Test</p>
+		
+
+		<!--
 		<form>
 			<div class="form-group">
 				<label for="name">First Name</label>
@@ -26,5 +44,6 @@
 			</div>
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form>
+		-->
 	</div>
 </div>
