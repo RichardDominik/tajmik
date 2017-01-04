@@ -9,4 +9,9 @@
         justify-content: center;
     -ms-flex-align: center;
         align-items: center;
+     padding: 100px 0px 30px 0px;
+}
+
+li {
+	list-style-type: none;
 }

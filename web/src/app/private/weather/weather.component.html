@@ -4,9 +4,34 @@
 			<p>You can't see this content. You need to be logged to see it</p>
 		</div>
 		<div *ngIf="isLogged">
-			<p>
-				weather works!
+			<p *ngIf="location">
+				weather works! and the city iiiiis {{location.name}}, {{location.country}}
 			</p>
+			<div *ngIf="forecast">
+				Today
+				{{forecast.weather[0].description}}
+				<img src="{{'http://openweathermap.org/img/w/' + forecast.weather[0].icon + '.png'}}" alt="ikonka" height="100px">
+				Humidity:
+				{{forecast.humidity}}%
+				Temperature:
+				{{forecast.temp.day}}K
+			</div>
+			<div *ngIf="allForecast">
+				<ul *ngFor="let all of allForecast ; let i = index ">
+					<li *ngIf="i !==0" >
+						<div >
+							{{all.dt * 1000 | date: 'EEEE' }}
+							{{all.weather[0].description}}
+							<img src="{{'http://openweathermap.org/img/w/' + all.weather[0].icon + '.png'}}" alt="ikonka" height="100px">
+							Humidity:
+							{{all.humidity}}%
+							Temperature:
+							{{all.temp.day}}K
+						</div>
+						
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
