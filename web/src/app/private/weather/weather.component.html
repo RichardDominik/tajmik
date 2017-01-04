@@ -10,7 +10,7 @@
 			<div *ngIf="forecast">
 				Today
 				{{forecast.weather[0].description}}
-				<img src="{{'http://openweathermap.org/img/w/' + forecast.weather[0].icon + '.png'}}" alt="ikonka" height="100px">
+				<i class="owf owf-{{forecast.weather[0].id}}"></i>
 				Humidity:
 				{{forecast.humidity}}%
 				Temperature:
@@ -26,7 +26,7 @@
 						<div >
 							{{all.dt * 1000 | date: 'EEEE' }}
 							{{all.weather[0].description}}
-							<img src="{{'http://openweathermap.org/img/w/' + all.weather[0].icon + '.png'}}" alt="ikonka" height="100px">
+							<i class="owf owf-{{all.weather[0].id}}"></i>
 							Humidity:
 							{{all.humidity}}%
 							Temperature:
