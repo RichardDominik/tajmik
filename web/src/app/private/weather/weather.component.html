@@ -14,7 +14,7 @@
 				Humidity:
 				{{forecast.humidity}}%
 				Temperature:
-				{{forecast.temp.day}}K
+				{{forecast.temp.day}}&deg;C
 			</div>
 			<div *ngIf="allForecast">
 				<ul *ngFor="let all of allForecast ; let i = index ">
@@ -26,7 +26,7 @@
 							Humidity:
 							{{all.humidity}}%
 							Temperature:
-							{{all.temp.day}}K
+							{{all.temp.day}}&deg;C
 						</div>
 						
 					</li>

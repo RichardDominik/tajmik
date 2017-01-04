@@ -13,7 +13,7 @@ export class WeatherService {
   		this.http = http;
   		this.apiKey = '24d021f2f41006ac5f062da3896dfd8c';
   		this.weatherUrl = 'http://api.openweathermap.org/data/2.5/forecast/daily?'
-      this.apiUser = ',us&mode=json&appid='+this.apiKey+'';
+      this.apiUser = ',us&mode=json&units=metric&appid='+this.apiKey+'';
   	}
 
   	getWeather(city) {
