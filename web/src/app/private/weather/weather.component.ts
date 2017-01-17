@@ -20,7 +20,7 @@ export class WeatherComponent implements OnInit {
   	constructor(private appComponent: AppComponent, private weatherService: WeatherService) {
   		this.isLogged = this.appComponent.isLogged;
       this.weatherService = weatherService;
-      this.city = 'Vranov nad Topľou';
+      this.city = 'Kosice';
       this.location;
       this.forecast;
       this.allForecast;

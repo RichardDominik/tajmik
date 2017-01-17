@@ -3,10 +3,106 @@
 	min-height: 100vh;
 	max-height: auto;
 	background-color: #F1F1F1;
-		display: -ms-flexbox;
-	display: flex;
-    -ms-flex-pack: center;
-        justify-content: center;
-    -ms-flex-align: center;
-        align-items: center;
+    padding: 92px 0px 100px 0px;
+    display: flex;
+    align-items: center;
 }
+
+.error {
+	text-align: center;
+}
+
+.error h1, h4 {
+	font-weight: 200;
+}
+
+.new-task {
+	margin-top: 8px;
+}
+
+.header input {
+	height: 40px;
+	font-weight: 200;
+	border:  1px solid #20D7AF;
+	border-radius: 25px;
+	color: #666;
+	outline: none;
+	background-color: #f1f1f1;
+}
+
+.error button {
+	background-color: #20D7AF;
+	color: #fff;
+	width: 50px;
+	height: 50px;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.error button i {
+	margin-top:  5px;
+}
+
+.error button:focus {
+	outline: none; 
+}
+
+.task-list {
+	margin-top: 20px;
+}
+
+li {
+	list-style-type: none;
+}
+
+.header input {
+	text-align: center;
+}
+
+.main {
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.main li {
+	background-color: #fff;
+	margin-bottom: 1px;
+	margin-top: 1px;
+}
+
+.main li label{
+	font-weight: 200;
+	font-size: 1.25em;
+}
+
+footer {
+	display: flex;
+	justify-content: center
+}
+
+.info {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	width: 50px;
+	background-color: #20D7AF;
+	border-radius: 50%;
+	color: #fff;
+	font-weight: 200;
+}
+
+.main button {
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+
+.main button i {
+	color:  #F44336;
+}
+
+
+

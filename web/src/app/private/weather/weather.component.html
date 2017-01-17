@@ -8,8 +8,8 @@
 				{{location.name}}, {{location.country}}
 			</p>
 			<div *ngIf="forecast" class="col-md-12 weather-today">
-				<i class="icon-today owf owf-800"></i>
-				<h3>{{forecast.weather[0].description | uppercase}}</h3>
+				<i class="icon-today owf owf-{{forecast.weather[0].id}}"></i>
+				<h4>{{forecast.weather[0].description | uppercase}}</h4>
 				<h5>{{forecast.temp.day}}&deg;C</h5>
 				<p><i class="wi wi-humidity"></i> {{forecast.humidity}}%</p>
 				<p> <i class="wi wi-thermometer"></i> {{forecast.temp.max}}&deg;C <i class="wi wi-thermometer-exterior"></i> {{forecast.temp.min}}&deg;C</p>
@@ -17,9 +17,9 @@
 			<div *ngIf="allForecast" class="col-md-12 weather-all">
 				<ul *ngFor="let all of allForecast ; let i = index ">
 					<li *ngIf="i !==0" >
-					<h4>{{all.dt * 1000 | date: 'EEEE' }}</h4>
+					<h5>{{all.dt * 1000 | date: 'EEEE' }}</h5>
 					<i class="icon-all owf owf-{{all.weather[0].id}}"></i>
-					<h5>{{all.weather[0].description | uppercase}}</h5>
+					<h6>{{all.weather[0].description | uppercase}}</h6>
 					<h6>{{all.temp.day}}&deg;C</h6>		
 					<p><i class="wi wi-humidity"></i> {{all.humidity}}%</p>		
 					<p><i class="wi wi-thermometer"></i> {{all.temp.max}}&deg;C <i class="wi wi-thermometer-exterior"></i> {{all.temp.min}}&deg;C</p>							

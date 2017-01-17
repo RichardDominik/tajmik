@@ -9,6 +9,13 @@ let passport = require('passport');
 let jwt = require('jwt-simple');
 let validator = require('validator');
 let assert = require('assert');
+var jwtDecode = require('jwt-decode');
+
+var decoded;
+
+if (decoded !== undefined){
+    console.log(decoded);
+}
 
 // database config
 let config = require('./config/database');
@@ -40,46 +47,10 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 db.once('open', () => {
     console.log('Connected to MongoDB');
-
-    //create information about user (firstName, lastName, city and country)
-    app.post('/api/profile', (req, res) => {
-        if(!req.body.firstName || !req.body.lastName || !req.body.city || !req.body.country){
-            res.json({success: false, msg: 'Please pass information about you.'})
-        }
-
-        let newProfile = new Profile({
-            firstName: req.body.firstName, 
-            lastName: req.body.lastName,
-            city: req.body.city,
-            country: req.body.country
-        });
-
-        newProfile.save((err) => {
-            if (err) {
-                return res.json({error: err});
-            }
-            res.json({success: true, msg: 'Successful created new profile.'});
-        });
-    });
-
-    // create user tasks
-    app.post('/api/task', (req, res) => {
-        if(!req.body.text){
-            res.json({success: false, msg: 'Please pass task to form'})
-        }
-
-        let newTask = new Task({
-            text: req.body.text
-        });
-
-        newTask.save((err) => {
-            if (err) {
-                return res.json({error: err});
-            }
-            res.json({success: true, msg: 'Successful created new task.'});
-        });
-    });
-
+    //Profiles
+    require('./routes/profiles.server.routes.js')(app);
+    //Tasks
+    require('./routes/tasks.server.routes.js')(app);
     //AUTHENTICATION
     // create a new user account
     app.post('/api/signup', (req, res) => {
@@ -104,6 +75,7 @@ db.once('open', () => {
               email: req.body.email,
               password: req.body.password,
             });
+            
             // save the user to database
             newUser.save((err) => {
               if (err) {
@@ -127,6 +99,8 @@ db.once('open', () => {
                 user.comparePassword(req.body.password, (err, isMatch) => {
                     if(isMatch && !err){
                         let token = jwt.encode(user, config.secret);
+                        decoded = jwtDecode(token);
+                        console.log(decoded);
                         res.json({success: true, token: 'JWT ' + token});
                     }else{
                         res.json({success: false, msg: 'Signin failed, wrong password'});

@@ -14,10 +14,15 @@ import { TaskDataService } from './task-data.service';
 export class TaskManagerComponent {
 
   isLogged: boolean;
+  anyData: boolean = false;
 	newTask: Task = new Task();
 
   constructor(private appComponent: AppComponent, private taskdataService: TaskDataService) {
   	this.isLogged = this.appComponent.isLogged;
+   }
+
+   data(){
+     this.anyData = true;
    }
 
    addTask() {

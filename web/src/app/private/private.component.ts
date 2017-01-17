@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Subscription } from 'rxjs/Rx';
 import { JwtHelper } from 'angular2-jwt';
@@ -10,6 +10,8 @@ import { AuthService } from './../auth/auth.service';
   templateUrl: './private.component.html',
   styleUrls: ['./private.component.css']
 })
+
+@Injectable()
 export class PrivateComponent implements OnInit {
 
 	isLogged: boolean;
@@ -18,6 +20,7 @@ export class PrivateComponent implements OnInit {
 	token: string;
 	tokenDecoded: Object;
 	tokenEmail: string;
+  tokenID: string;
 
   	constructor(private authService: AuthService) {}
 
@@ -27,6 +30,7 @@ export class PrivateComponent implements OnInit {
   			this.token = localStorage.getItem('token');
   			this.tokenDecoded = this.jwtHelper.decodeToken(this.token);
   			this.tokenEmail = this.tokenDecoded['email'];
+        this.tokenID = this.tokenDecoded['_id'];
   		}
   	}
 

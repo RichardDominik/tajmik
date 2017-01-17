@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
 	token: string;
 	tokenDecoded: Object;
 	tokenEmail: string;
+	tokenID: string;
 
 	constructor(private router: Router, private authService: AuthService){
 		this.authService.authenticateState$.subscribe(
@@ -38,6 +39,8 @@ export class AppComponent implements OnInit {
   			this.token = localStorage.getItem('token');
   			this.tokenDecoded = this.jwtHelper.decodeToken(this.token);
   			this.tokenEmail = this.tokenDecoded['email'];
+  			this.tokenID = this.tokenDecoded['_id'];
   		}
+  		console.log(this.isLogged);
   	}	
 }

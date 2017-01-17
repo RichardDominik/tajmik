@@ -3,25 +3,33 @@
 		<div *ngIf="!isLogged" class="alert alert-danger">
 			<p>You can't see this content. You need to be logged to see it</p>
 		</div>
-		<div *ngIf="isLogged" class="taskapp">
+		<div *ngIf="isLogged">
 			<section class="todoapp">
-				<header class="header">
-					<h1>Todos</h1>
-					<input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTask.title" (keyup.enter)="addTask()">
-				</header>
-				<section class="main" *ngIf="tasks.length > 0">
-					<ul class="todo-list">
-						<li *ngFor="let task of tasks" [class.completed]="task.complete">
-							<div class="view">
-								<input class="toggle" type="checkbox" (click)="toggleTaskComplete(task)" [checked]="task.complete">
-								<label>{{task.title}}</label>
-								<button class="destroy" (click)="removeTask(task)">Destrojni maaa</button>
-							</div>
-						</li>
-					</ul>
+				<section class="error" *ngIf="tasks.length == 0">
+					<h1>Nothing here, yet.</h1>
+					<h4>Click add to add task.</h4>
+					<button (click)='data()'><i class="material-icons">add</i></button>
 				</section>
-				<footer class="footer" *ngIf="tasks.length > 0">
-					<span class="todo-count"><strong>{{tasks.length}}</strong> {{tasks.length == 1 ? 'item' : 'items'}} left</span>
+				<div class="tasks">
+					<header *ngIf="anyData" class="header col-md-12">
+						<input class="new-task  offset-md-4 col-md-4" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTask.title" (keyup.enter)="addTask()">
+					</header>
+					<section class="main offset-md-3 col-md-6" *ngIf="tasks.length > 0">
+						<ul class="task-list">
+							<li *ngFor="let task of tasks" [class.completed]="task.complete">
+								<div class="view">
+									<label class="task">{{task.title}}</label>					
+									<input type="checkbox" (click)="toggleTaskComplete(task)" [checked]="task.complete">
+									<button class="destroy" (click)="removeTask(task)"><i class="material-icons">clear</i></button>
+								</div>
+							</li>
+						</ul>
+					</section>
+				</div>
+				<footer class="col-md-12" *ngIf="tasks.length > 0">
+					<div class="info">
+						<span>{{tasks.length}}</span>
+					</div>
 				</footer>
 			</section>
 		</div>
