@@ -36,15 +36,14 @@ export class ProfileComponent implements OnInit {
     };
 
     getProfile(){
-      this.profileService.getProfile()
-      .subscribe(
-        res => {
-          if(res.success){ 
-            console.log('uspesne');
+      this.profileService.getProfile(this.tokenID)
+      .subscribe(res => {
+        if(res.success){ 
+            console.log(res);
           }else{
-            console.log('neuspesne');
+            console.log(res);
           }
-        })
+      })
     };
 
     ngOnInit() {

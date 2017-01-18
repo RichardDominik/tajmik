@@ -9,6 +9,9 @@ import { ProfileComponent } from './private/profile/profile.component';
 import { TaskManagerComponent } from './private/task-manager/task-manager.component';
 import { EventManagerComponent } from './private/event-manager/event-manager.component';
 import { WeatherComponent } from './private/weather/weather.component';
+import { ChartComponent } from './private/chart/chart.component';
+
+
 
 export const router: Routes = [
 	{ path: '', component: MainPageComponent },
@@ -18,7 +21,8 @@ export const router: Routes = [
 	{ path: 'profile', component: ProfileComponent },
 	{ path: 'task_manager', component: TaskManagerComponent },
 	{ path: 'event_manager', component: EventManagerComponent },
-	{ path: 'weather', component: WeatherComponent }
+	{ path: 'weather', component: WeatherComponent },
+	{ path: 'chart', component: ChartComponent}
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);

@@ -9,13 +9,7 @@ let passport = require('passport');
 let jwt = require('jwt-simple');
 let validator = require('validator');
 let assert = require('assert');
-var jwtDecode = require('jwt-decode');
-
-var decoded;
-
-if (decoded !== undefined){
-    console.log(decoded);
-}
+let  jwtDecode = require('jwt-decode');
 
 // database config
 let config = require('./config/database');
@@ -99,8 +93,9 @@ db.once('open', () => {
                 user.comparePassword(req.body.password, (err, isMatch) => {
                     if(isMatch && !err){
                         let token = jwt.encode(user, config.secret);
-                        decoded = jwtDecode(token);
+                        let decoded = jwtDecode(token);
                         console.log(decoded);
+                        exports.decoded = decoded;
                         res.json({success: true, token: 'JWT ' + token});
                     }else{
                         res.json({success: false, msg: 'Signin failed, wrong password'});

@@ -23,11 +23,10 @@ export class ProfileService {
 		});
   }
 
-  getProfile(): Observable<any>{
-    return this.http.get('api/profile')
-    .map(res => res.json())
-    .catch(error => {
-      return Observable.throw(error.json());
-    });
+  getProfile(creator: any) {
+    return this.http.get('api/profile', {
+      headers: creator
+    })
+    .map(res => res.json());
   }
 }

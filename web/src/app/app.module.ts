@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
+// import { ChartsModule } from 'ng2-charts/ng2-charts';
 import 'rxjs/add/operator/map';
 
 
@@ -19,9 +20,11 @@ import { ProfileComponent } from './private/profile/profile.component';
 import { TaskManagerComponent } from './private/task-manager/task-manager.component';
 import { EventManagerComponent } from './private/event-manager/event-manager.component';
 import { WeatherComponent } from './private/weather/weather.component';
+import { ChartComponent } from './private/chart/chart.component';
 
 //providers
 import { AuthService } from './auth/auth.service';
+
 
 
 
@@ -36,11 +39,13 @@ import { AuthService } from './auth/auth.service';
     ProfileComponent,
     TaskManagerComponent,
     EventManagerComponent,
-    WeatherComponent
+    WeatherComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    //ChartsModule,
     ReactiveFormsModule,
     HttpModule,
     routes
