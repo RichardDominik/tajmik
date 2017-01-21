@@ -28,7 +28,7 @@ export class ChartComponent {
 
 	private taskDatasets = [
 		{
-			data: [25,3]
+			data: [25,3],
 		}
 	];
 

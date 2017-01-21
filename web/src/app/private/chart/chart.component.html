@@ -3,13 +3,19 @@
 		<p>You can't see this content. You need to be logged to see it</p>
 	</div>
 	<div *ngIf="isLogged" class="charts">
+	<div>
+	<h3>Tasks</h3>
 		<base-chart
 			class="chart"
 			[datasets]="taskDatasets"
 			[labels]="taskLabels"
+			[legend]="'left'"
 			[colors]="colors"
 			[chartType]="'doughnut'">
 		</base-chart>
+	</div>
+	<div>
+	<h3>Events</h3>
 		<base-chart
 			class="chart"
 			[datasets]="eventDatasets"
@@ -17,5 +23,6 @@
 			[labels]="eventLabels"
 			[chartType]="'doughnut'">
 		</base-chart>
+	</div>
 	</div>
 </div>

@@ -36,7 +36,7 @@ export class ProfileComponent implements OnInit {
     };
 
     getProfile(){
-      this.profileService.getProfile(this.tokenID)
+      this.profileService.getProfile()
       .subscribe(res => {
         if(res.success){ 
             console.log(res);

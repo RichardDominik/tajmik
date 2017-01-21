@@ -15,6 +15,11 @@
 	display: flex;
 }
 
+h3 {
+	font-weight: 200;
+	text-align: center;
+}
+
 base-chart {
 	width: 350px;
 	height: auto;

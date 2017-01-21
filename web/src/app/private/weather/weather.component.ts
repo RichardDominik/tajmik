@@ -32,7 +32,6 @@ export class WeatherComponent implements OnInit {
             this.location = forecast.city;
             this.forecast = forecast.list[0];
             this.allForecast = forecast.list;
-            console.log(this.allForecast);
           });
   	}
 }
