@@ -4,7 +4,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
-// import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
+
+
+
 import 'rxjs/add/operator/map';
 
 
@@ -45,7 +48,7 @@ import { AuthService } from './auth/auth.service';
   imports: [
     BrowserModule,
     FormsModule,
-    //ChartsModule,
+    ChartsModule,
     ReactiveFormsModule,
     HttpModule,
     routes
