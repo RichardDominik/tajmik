@@ -11,22 +11,26 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 })
 
 export class ChartComponent {
-private datasets = [
-    {
-      label: "# of Votes",
-      data: [12, 19, 3, 5, 2, 3]
-    }
-  ];
+	private colors = [
+		{
+			 backgroundColor: ["#20D7AF", "#E81D62"]
+		}
+	];
 
-  private labels = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'];
+	private taskDatasets = [
+		{
+			data: [25,3]
+		}
+	];
 
-  private options = {
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero: true
-        }
-      }]
-    }
-  };
+	private taskLabels = ['Complete Tasks', 'Incomplete Tasks'];
+
+	private eventDatasets = [
+    	{
+     	 	data: [15,8]
+    	}
+  	];
+
+	private eventLabels = ['Complete Events', 'Incomplete Events'];
+
 }

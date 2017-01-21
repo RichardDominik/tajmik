@@ -10,3 +10,8 @@
     -ms-flex-align: center;
         align-items: center;
 }
+
+base-chart {
+	width: 350px;
+	height: auto;
+}

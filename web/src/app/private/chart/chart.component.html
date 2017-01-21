@@ -1,10 +1,17 @@
 <div class="chart_bg">
-<base-chart
-      class="chart"
-      [datasets]="datasets"
-      [labels]="labels"
-      [options]="options"
-      [chartType]="'line'">
-    </base-chart>
-</div>
+	<base-chart
+		class="chart"
+		[datasets]="taskDatasets"
+		[labels]="taskLabels"
+		[colors]="colors"
+		[chartType]="'doughnut'">
+	</base-chart>
+	<base-chart
+		class="chart"
+		[datasets]="eventDatasets"
+		[colors]="colors"
+		[labels]="eventLabels"
+		[chartType]="'doughnut'">
+	</base-chart>
 
+</div>
