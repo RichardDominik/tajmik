@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import 'chart.js' 
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 
+import { AppComponent } from '../../app.component';
+
 
 @Component({
   selector: 'app-chart',
@@ -11,6 +13,13 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 })
 
 export class ChartComponent {
+
+	isLogged: boolean;
+
+	constructor(private appComponent: AppComponent) {
+  		this.isLogged = this.appComponent.isLogged;
+  	}
+
 	private colors = [
 		{
 			 backgroundColor: ["#20D7AF", "#E81D62"]

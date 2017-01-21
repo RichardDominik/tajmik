@@ -11,6 +11,10 @@
         align-items: center;
 }
 
+.charts {
+	display: flex;
+}
+
 base-chart {
 	width: 350px;
 	height: auto;

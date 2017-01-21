@@ -1,17 +1,21 @@
 <div class="chart_bg">
-	<base-chart
-		class="chart"
-		[datasets]="taskDatasets"
-		[labels]="taskLabels"
-		[colors]="colors"
-		[chartType]="'doughnut'">
-	</base-chart>
-	<base-chart
-		class="chart"
-		[datasets]="eventDatasets"
-		[colors]="colors"
-		[labels]="eventLabels"
-		[chartType]="'doughnut'">
-	</base-chart>
-
+	<div *ngIf="!isLogged" class="alert alert-danger container">
+		<p>You can't see this content. You need to be logged to see it</p>
+	</div>
+	<div *ngIf="isLogged" class="charts">
+		<base-chart
+			class="chart"
+			[datasets]="taskDatasets"
+			[labels]="taskLabels"
+			[colors]="colors"
+			[chartType]="'doughnut'">
+		</base-chart>
+		<base-chart
+			class="chart"
+			[datasets]="eventDatasets"
+			[colors]="colors"
+			[labels]="eventLabels"
+			[chartType]="'doughnut'">
+		</base-chart>
+	</div>
 </div>

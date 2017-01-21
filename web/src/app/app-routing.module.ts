@@ -22,7 +22,7 @@ export const router: Routes = [
 	{ path: 'task_manager', component: TaskManagerComponent },
 	{ path: 'event_manager', component: EventManagerComponent },
 	{ path: 'weather', component: WeatherComponent },
-	{ path: 'chart', component: ChartComponent}
+	{ path: 'charts', component: ChartComponent}
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);
