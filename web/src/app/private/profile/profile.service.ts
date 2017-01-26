@@ -4,9 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/Rx';
 
-
 import { AppComponent } from '../../app.component';
-
 
 @Injectable()
 export class ProfileService {

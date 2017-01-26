@@ -33,9 +33,13 @@ export class AppComponent implements OnInit {
 		this.router.navigate(['/'])
 	}
 
+	reload(){
+		location.reload();
+	}
+
   	ngOnInit(){
   		this.isLogged = this.authService.isAuthenticate();
-  		if(this.isLogged){
+  		if(localStorage.getItem('token')){
   			this.token = localStorage.getItem('token');
   			this.tokenDecoded = this.jwtHelper.decodeToken(this.token);
   			this.tokenEmail = this.tokenDecoded['email'];

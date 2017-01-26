@@ -1,53 +1,38 @@
-import { Injectable } from '@angular/core';
-import { Event } from './event';
+import { Injectable, Inject  } from '@angular/core';
+import { Http, Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/Rx';
+
+import { AppComponent } from '../../app.component';
 
 @Injectable()
 export class EventDataService {
 
-	lastId: number = 0;
+  tokenID: string;
+  options: any;
 
-	events: Event[] = [];
+  constructor(@Inject(Http) private http: Http , private appComponent: AppComponent) {
+    this.tokenID = this.appComponent.tokenID;
+    let headers = new Headers({'Content-Type': 'application/json'});  
+    headers.append('Authorization',` ${this.tokenID}`) 
+    this.options = new RequestOptions({headers: headers});
+  }
 
-  	constructor() { }
+  addEvent(title: string, comment: string, creator: any, done: string, completed:boolean): Observable<any>{
+    return this.http.post('api/events', {
+      title: title,
+      comment: comment,
+      creator: creator,
+      done: done,
+      completed: completed
+    })
+    .map(res => res.json())
+    .catch(error => {
+      return Observable.throw(error.json());
+    });
+  }
 
-  	addEvent(event: Event): EventDataService {
-  		if(!event.id){
-  			event.id = ++this.lastId;
-  		}
-  		this.events.push(event);
-  		return this;
-  	}
 
-  	deleteEventById(id: number): EventDataService {
-  		this.events = this.events
-  			.filter(event => event.id !== id);
-  			return this;
-  	}
-
-  	updateEventById(id: number, values: Object = {}): Event {
-  		let event = this.getEventById(id);
-  		if(!event) {
-  			return null;
-  		}
-  		Object.assign(event, values);
-  		return event;
-  	}
-
-  	getAllEvents(): Event[] {
-  		return this.events;
-  	}
-
-  	getEventById(id: number): Event {
-  		return this.events
-  			.filter(event => event.id === id)
-  			.pop();
-  	}
-
-  	toogleEventComplete(event: Event){
-  		let updateEvent = this.updateEventById(event.id, {
-  			complete: !event.complete
-  		});
-
-  		return updateEvent;
-  	}
+  
 }

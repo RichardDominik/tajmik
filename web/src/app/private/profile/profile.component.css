@@ -10,3 +10,60 @@
     -ms-flex-align: center;
         align-items: center;
 }
+.user {
+	background-image: url('../../../img/user.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.profile {
+	display: flex;
+	padding: 20px 20px 20px 20px;
+	background:  #fff;
+}
+
+.icon{
+	text-align: center;
+}
+
+.icon i {
+	font-size: 5em;
+}
+
+.profile label{
+	font-weight: 800;
+	color: #20D7AF;
+	margin-bottom: 0px;
+}
+
+.profile p {
+	font-weight: 200;
+}
+
+.form-group label {
+	font-weight: 200;
+	margin-bottom: 0px;
+}
+
+input {
+	padding: 8px 0px 8px 0px;
+	border-radius: 0px;
+	border: none;
+	border-bottom: 1px solid #D7D7D7;
+	background: none;
+}
+
+input:focus { 
+    background: none;
+    border-bottom: 1px solid #20D7AF;
+}
+
+.btn-default {
+	font-weight: 200;
+	color: #fff;
+	font-size: 1em;
+	background-color: #3DBCF3;
+	outline: none;
+}
+

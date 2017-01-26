@@ -3,11 +3,12 @@ let Schema = mongoose.Schema;
 
 let schema = new Schema({
 	created: {type: Date, default: Date.now},
+	done: {type: String},
 	title: {type: String, trim: true, required: "Please enter a Event"},
 	comment: {type: String},
 	creator: {type: String},
 	completed: {type: Boolean, default: false}
 });
 
-let taskSchema = mongoose.model('Task', schema);
-module.exports = taskSchema;
+let eventSchema = mongoose.model('Event', schema);
+module.exports = eventSchema;

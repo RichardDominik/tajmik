@@ -31,10 +31,6 @@ let db = mongoose.connection;
 
 // User schema 
 let User = require('./models/user');
-// Profile schema
-let Profile = require('./models/profile');
-// Task schema 
-let Task = require('./models/task');
 
 
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -45,6 +41,8 @@ db.once('open', () => {
     require('./routes/profiles.server.routes.js')(app);
     //Tasks
     require('./routes/tasks.server.routes.js')(app);
+    //Event
+    require('./routes/event.server.routes.js')(app);
     //AUTHENTICATION
     // create a new user account
     app.post('/api/signup', (req, res) => {

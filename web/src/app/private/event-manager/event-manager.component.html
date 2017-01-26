@@ -4,26 +4,27 @@
 			<p>You can't see this content. You need to be logged to see it</p>
 		</div>
 		<div *ngIf="isLogged" >
-			<section class="eventapp">
-				<header class="header">
-					<h1>Events</h1>
-					<input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newEvent.title">
-					<input type="date" class="new-todo" placeholder="Date" autofocus="" [(ngModel)]="newEvent.date">
-					<button (click)="addEvent()">Add Event</button>
-				</header>
+			<section>
+				<form #f="ngForm" (ngSubmit)="addEvent(f.value)">
+					<div class="form-group">
+						<label for="title">Title</label>
+						<input type="text" class="form-control" [(ngModel)]="title" name="title">
+					</div>
+					<div class="form-group">
+						<label for="comment">Comment</label>
+						<input type="text" class="form-control" [(ngModel)]="comment" name="comment">
+					</div>
+					<div class="form-group">
+						<label for="done">Date</label>
+						<input type="date" class="form-control" [(ngModel)]="done" name="done">
+					</div>
+					<div class="form-group">
+						<label for="completed">Completed</label>
+						<input type="checkbox" class="form-control"[(ngModel)]="completed" name="completed">
+					</div>
+					<button type="submit" class="col-md-4 offset-md-4 btn btn-default">SUBMIT</button>
+				</form>
 			</section>
-			<section class="main" *ngIf="events.length > 0">
-				<ul class="todo-list">
-					<li *ngFor="let event of events" [class.completed]="event.complete">
-						<div class="view">
-							<input class="toggle" type="checkbox" (click)="toggleEventComplete(task)" [checked]="event.complete">
-							<label>{{event.title}}</label>
-							<label>{{event.date | date: 'dd/MM/yyyy'}}</label>
-							<button class="destroy" (click)="removeEvent(event)">Destrojni maaa</button>
-						</div>
-					</li>
-				</ul>
-			</section>
+		</div>
 	</div>
-</div>
 </div>
