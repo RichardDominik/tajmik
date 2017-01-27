@@ -12,6 +12,14 @@
     padding: 60px 0px 0px 0px;
 }
 
+.error {
+	text-align: center;
+}
+
+.error h1 {
+	font-weight: 200;
+}
+
 .location-info {
 	font-size: 2em;
 	margin-bottom: 0px;
@@ -69,8 +77,6 @@ li:hover, .offcanvas li:focus {
     background-color: #fff;
     cursor:  pointer;
 }
-
-
 
 li {
 	list-style-type: none;
