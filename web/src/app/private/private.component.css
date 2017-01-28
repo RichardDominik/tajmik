@@ -4,9 +4,47 @@
 	max-height: auto;
 	background-color: #F1F1F1;
 		display: -ms-flexbox;
-	display: flex;
-    -ms-flex-pack: center;
-        justify-content: center;
-    -ms-flex-align: center;
-        align-items: center;
+	padding: 80px 0px 80px 0px;
+
+}
+
+.tasks {
+	background-color: #20D7AF;
+	height: 150px;
+	color:  #fff;
+}
+
+.events {
+	background-color: #02A8F3;
+	height: 150px;
+	color:  #fff;
+}
+
+.charts {
+	background-color: #E84C3D;
+	height: 150px;
+	color:  #fff;
+}
+
+.info {
+	margin-top: 50px;
+}
+
+.events-info {
+	background-color: #fff;
+	height: 250px;
+}
+
+.weather-info {
+	margin-top: 50px;
+}
+
+.weather {
+	background-color: #fff;
+	height: 250px;
+}
+
+.tasks-info {
+	height: 250px;
+	background-color: #fff;
 }

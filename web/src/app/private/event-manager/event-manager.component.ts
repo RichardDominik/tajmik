@@ -43,7 +43,6 @@ export class EventManagerComponent implements OnInit {
         this.comment = this.res.comment;
         this.done = this.res.done;
         this.completed = this.res.completed;
-        console.log(this.res.done);
       }
     });
   }

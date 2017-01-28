@@ -6,10 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 
-
-
 import 'rxjs/add/operator/map';
-
 
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 //local files
@@ -27,10 +24,6 @@ import { ChartComponent } from './private/chart/chart.component';
 
 //providers
 import { AuthService } from './auth/auth.service';
-
-
-
-
 
 @NgModule({
   declarations: [
@@ -60,4 +53,5 @@ import { AuthService } from './auth/auth.service';
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

@@ -38,6 +38,12 @@ export class EventDataService {
     .map(res => res.json());
   }
 
+  putEvent(){
+    return this.http.put('/api/events/:eventID', {
+      
+    })
+  }
+
 
   
 }

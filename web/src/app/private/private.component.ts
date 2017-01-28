@@ -3,35 +3,28 @@ import { Http } from '@angular/http';
 import { Subscription } from 'rxjs/Rx';
 import { JwtHelper } from 'angular2-jwt';
 
-import { AuthService } from './../auth/auth.service';
+import { AppComponent } from '../app.component';
+import { PrivateDataService } from './private-data.service'
 
 @Component({
   selector: 'app-private',
   templateUrl: './private.component.html',
-  styleUrls: ['./private.component.css']
+  styleUrls: ['./private.component.css'],
+  providers: [PrivateDataService]
+
 })
 
 @Injectable()
 export class PrivateComponent implements OnInit {
 
-	isLogged: boolean;
+    isLogged: boolean;
 
-	jwtHelper: JwtHelper = new JwtHelper();
-	token: string;
-	tokenDecoded: Object;
-	tokenEmail: string;
-  tokenID: string;
-
-  	constructor(private authService: AuthService) {}
+  	constructor(private appComponent: AppComponent) {
+      this.isLogged = this.appComponent.isLogged;
+    }
 
   	ngOnInit() {
-  		this.isLogged = this.authService.isAuthenticate();
-  		if(this.isLogged){
-  			this.token = localStorage.getItem('token');
-  			this.tokenDecoded = this.jwtHelper.decodeToken(this.token);
-  			this.tokenEmail = this.tokenDecoded['email'];
-        this.tokenID = this.tokenDecoded['_id'];
-  		}
+  		
   	}
 
 }

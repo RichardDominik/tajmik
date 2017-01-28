@@ -9,8 +9,6 @@
         justify-content: center;
     -ms-flex-align: center;
         align-items: center;
+    padding: 60px 0px 0px 0px;
 }
 
-.form {
-	margin-top: 60px;
-}
