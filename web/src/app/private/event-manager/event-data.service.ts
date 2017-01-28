@@ -33,6 +33,11 @@ export class EventDataService {
     });
   }
 
+  getEvents(){
+    return this.http.get('/api/events', this.options)
+    .map(res => res.json());
+  }
+
 
   
 }

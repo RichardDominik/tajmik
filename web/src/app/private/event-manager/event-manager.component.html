@@ -4,7 +4,7 @@
 			<p>You can't see this content. You need to be logged to see it</p>
 		</div>
 		<div *ngIf="isLogged" >
-			<section>
+			<section class="form">
 				<form #f="ngForm" (ngSubmit)="addEvent(f.value)">
 					<div class="form-group">
 						<label for="title">Title</label>
@@ -25,6 +25,16 @@
 					<button type="submit" class="col-md-4 offset-md-4 btn btn-default">SUBMIT</button>
 				</form>
 			</section>
+			<section *ngIf="res" class="col-md-12">
+			<ul *ngFor="let all of res">
+				<li>{{all.title}}</li>
+				<li>{{all.comment}}</li>
+				<li>{{all.done}}</li>
+				<li><input type="checkbox" [(ngModel)]="all.completed"></li>
+				<li>{{all.completed}}</li>
+			</ul>
+			</section>
 		</div>
 	</div>
 </div>
+

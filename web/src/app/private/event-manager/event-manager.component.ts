@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../../app.component';
 
 import { EventDataService } from './event-data.service';
@@ -9,7 +9,7 @@ import { EventDataService } from './event-data.service';
   styleUrls: ['./event-manager.component.css'],
   providers: [EventDataService]
 })
-export class EventManagerComponent {
+export class EventManagerComponent implements OnInit {
 
   isLogged: boolean;
   tokenID: string;
@@ -17,6 +17,7 @@ export class EventManagerComponent {
   comment: string;
   done: string;
   completed: boolean;
+  res: any;
 
 	
   constructor(private appComponent: AppComponent, private eventdataService: EventDataService) {
@@ -28,8 +29,22 @@ export class EventManagerComponent {
     this.eventdataService.addEvent(form.title, form.comment, this.tokenID, form.done, form.completed)
     .subscribe(
         res => {
-            console.log('event pridany');
+            location.reload();
           }
       )
+  }
+
+  ngOnInit(){
+    this.eventdataService.getEvents()
+    .subscribe(res => {
+      this.res = res;
+      if(this.res !== undefined){
+        this.title = this.res.title;
+        this.comment = this.res.comment;
+        this.done = this.res.done;
+        this.completed = this.res.completed;
+        console.log(this.res.done);
+      }
+    });
   }
 }

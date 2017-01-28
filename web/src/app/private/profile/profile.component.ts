@@ -39,11 +39,11 @@ export class ProfileComponent implements OnInit {
       this.profileService.getProfile()
       .subscribe(res => {
         this.res = res[0];
-        if(res[0] !== undefined){
-            this.firstName = res[0].firstName;
-            this.lastName = res[0].lastName;
-            this.city = res[0].city;
-            this.country = res[0].country;
+        if(this.res !== undefined){
+            this.firstName = this.res.firstName;
+            this.lastName = this.res.lastName;
+            this.city = this.res.city;
+            this.country = this.res.country;
         }
       });
       console.log(this.isLogged);
