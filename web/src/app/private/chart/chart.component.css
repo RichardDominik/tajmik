@@ -24,3 +24,7 @@ base-chart {
 	width: 350px;
 	height: auto;
 }
+
+.error h1 {
+	font-weight: 200;
+}
