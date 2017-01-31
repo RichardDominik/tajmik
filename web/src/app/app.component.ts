@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Router, Routes, RouterModule } from '@angular/router';
 
 import { AuthService } from './auth/auth.service'
@@ -12,7 +12,7 @@ import { JwtHelper } from 'angular2-jwt';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnChanges {
   
 	isLogged: boolean;
 
@@ -33,8 +33,8 @@ export class AppComponent implements OnInit {
 		this.router.navigate(['/'])
 	}
 
-	reload(){
-		location.reload();
+	ngOnChanges(){
+
 	}
 
   	ngOnInit(){

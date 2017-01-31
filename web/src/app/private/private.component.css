@@ -20,7 +20,7 @@
 	color:  #fff;
 }
 
-.charts {
+.incompleted-events {
 	background-color: #E84C3D;
 	height: 150px;
 	color:  #fff;
@@ -39,7 +39,7 @@
 	margin-top: 50px;
 }
 
-.weather {
+.weather-info {
 	background-color: #fff;
 	height: 250px;
 }

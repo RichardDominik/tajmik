@@ -1,14 +1,29 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject  } from '@angular/core';
+import { Http, Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/Rx';
+
+import { AppComponent } from '../../app.component';
+
+
 import { Task } from './task' 
 
 @Injectable()
 export class TaskDataService {
+  	tokenID: string;
+  	options: any;
+
+  	constructor(@Inject(Http) private http: Http , private appComponent: AppComponent) {
+    	this.tokenID = this.appComponent.tokenID;
+    	let headers = new Headers({'Content-Type': 'application/json'});  
+    	headers.append('Authorization',` ${this.tokenID}`) 
+    	this.options = new RequestOptions({headers: headers});
+  	}
 
 	lastId: number = 0;
 
 	tasks: Task[] = [];
 
-  	constructor() { }
 
   	addTask(task: Task): TaskDataService {
   		if(!task.id){
@@ -49,6 +64,11 @@ export class TaskDataService {
 		});
 
 		return updateTask;
+	}
+
+	getTasks(){
+		return this.http.get('/api/tasks', this.options)
+			.map(res => res.json());
 	}
 
 }
