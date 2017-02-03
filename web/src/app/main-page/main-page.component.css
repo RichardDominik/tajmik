@@ -92,14 +92,53 @@
 }
 
 .our-app img{
-	height: 250px;
+	height: 400px;
 	width: auto;
+	margin-top: 50px;
+}
+
+.our-app h2 {
+	font-weight: 200;
+	margin-top: 200px;
+}
+
+.get-started {
+	width: 100%;
+	height: 200px;
+	background-color: #F7F7F7;
+	text-align: center;
+}
+
+.get-started button {
+	margin-top: 75px;
+	border-radius: 0px;
+	border: 2px solid #20D7AF;
+	background: #20D7AF;
+	color: #fff;
+	font-size: 1.2em;
+	outline: none;
+	font-weight: 200;
 }
 
 footer {
 	width: 100%;
-	height: 250px;
+	height: 80px;
 	background-color: #222222;
 }
 
+footer p {
+	text-align: center;
+	margin-top: 25px;
+	color: #fff;
+	font-weight: 200;
+}
+
+footer a {
+	color: #02A8F3;
+}
+
+footer a:hover, a:active, a:visited, a:active {
+	color: #02A8F3;
+	text-decoration: none;
+}
 
