@@ -25,8 +25,10 @@ export class PrivateComponent implements OnInit {
     taskLength: number;
     eventLength: number;
     incompletedEvents: number;
+    cityRes: any;
     city: string;
     forecast: any;
+    mainInfo: any;
     eventRes: any;
     title: string;
     done: any;
@@ -93,11 +95,13 @@ export class PrivateComponent implements OnInit {
 
      this.profileService.getProfile()
         .subscribe(res => {
-             this.res = res[0];
-             if(res[0] !== undefined){
-                this.city = res[0].city;
+             this.cityRes = res[0];
+             if(this.cityRes !== undefined){
+                this.city = this.cityRes.city;
                 this.weatherService.getWeather(this.city)
                   .subscribe(forecast => {
+                    console.log(forecast);
+                    this.mainInfo = forecast;
                     this.forecast = forecast.list[0];
                 });
              }

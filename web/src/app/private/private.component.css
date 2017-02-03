@@ -26,6 +26,29 @@
 	color:  #fff;
 }
 
+.info-box h1{
+	font-size: 3em;
+	font-weight: 200;
+	margin-top: 25px;
+}
+
+.info-box p {
+	font-weight: 200;
+	font-size: 1.2em;
+}
+
+.tasks i {
+	font-size: 4em;
+	margin-top: 50px;
+	color: rgba(255,255,255,0.65)
+}
+
+.events i {
+	font-size: 4em;
+	margin-top: 50px;
+	color: rgba(255,255,255,0.65)
+}
+
 .info {
 	margin-top: 50px;
 }
@@ -37,14 +60,28 @@
 
 .weather-info {
 	margin-top: 50px;
-}
-
-.weather-info {
 	background-color: #fff;
 	height: 250px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .tasks-info {
 	height: 250px;
 	background-color: #fff;
+}
+
+
+.forecast {
+	text-align: center;
+}
+
+.icon-today {
+	font-size: 5em;
+}
+
+.forecast h5 {
+	margin-top: 15px;
+	font-weight: 200;
 }

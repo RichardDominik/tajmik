@@ -6,86 +6,113 @@
 		<div *ngIf="isLogged">
 			<div class="col-md-12">
 				<div class="col-md-4 tasks">
-					<h1>{{taskLength}}</h1>
-					<p>{{taskLength == 1 ? 'task' : 'tasks'}}</p>
+					<div class="col-md-9 info-box">
+						<h1>{{taskLength}}</h1>
+						<p>New {{taskLength == 1 ? 'task' : 'tasks'}}</p>
+					</div>
+					<i class="col-md-3 material-icons">done</i>
 				</div>
 				<div class="offset-md-1 col-md-4 events">
-					<h1>{{eventLength}}</h1>
-					<p> {{eventLength == 1 ? 'event' : 'events'}}</p>
+					<div class="col-md-9 info-box">
+						<h1>{{eventLength}}</h1>
+						<p>New {{eventLength == 1 ? 'event' : 'events'}}</p>
+					</div>
+					<i class="col-md-3 material-icons">event</i>
 				</div>
 				<div class="offset-md-1 col-md-2 incompleted-events">
-					<h1>{{incompletedEvents}}</h1>
-					<p>Incompleted {{incompletedEvents == 1 ? 'event' : 'events'}}</p>
+					<div class="col-md-12 info-box">
+						<h1>{{incompletedEvents}}</h1>
+						<p>Incompleted {{incompletedEvents == 1 ? 'event' : 'events'}}</p>
+					</div>
 				</div>
 			</div>
 			<div class="col-md-12 info">
 				<div class="col-md-6 events-info">
 					<p>Events</p>
-					<ul  *ngFor="let all of eventRes ; let i = index ">
-						<li *ngIf="i <= 1">
-						<p> 
-							{{all.title}}
-						</p>
-						<p>
-							{{all.done}}
-						</p>
-						<div>
-							<input type="checkbox" [(ngModel)]="all.completed">
+					<h1 *ngIf="!eventRes">You don't have added events.</h1>
+					<div *ngIf="eventRes">
+						<ul  *ngFor="let all of eventRes ; let i = index ">
+							<li *ngIf="i <= 1">
+								<p>
+									{{all.title}}
+								</p>
+								<p>
+									{{all.done}}
+								</p>
+								<div>
+									<input type="checkbox" [(ngModel)]="all.completed">
+								</div>
+							</ul>
 						</div>
-					</ul>
-				</div>
-				<div class="offset-md-1 col-md-5 tasks-info">
-					<p>Tasks</p>
-					<ul  *ngFor="let all of taskRes ; let i = index ">
-						<li *ngIf="i <= 2">
-						<p> 
-							{{all.title}}
-						</p>
-						<div>
-							<input type="checkbox" [(ngModel)]="all.completed">
+					</div>
+					<div class="offset-md-1 col-md-5 tasks-info">
+						<p>Tasks</p>
+						<h1 *ngIf="!taskRes">You dont't have added tasks</h1>
+						<div *ngIf="taskRes">
+							<ul  *ngFor="let all of taskRes ; let i = index ">
+								<li *ngIf="i <= 2">
+									<p>
+										{{all.title}}
+									</p>
+									<div>
+										<input type="checkbox" [(ngModel)]="all.completed">
+									</div>
+								</ul>
+							</div>
 						</div>
-					</ul>
-				</div>
-			</div>
-			<div class="col-md-12 weather-info">
-				<div *ngIf="!forecast">
-					You don't have added city in your profile.
-				</div>
-				<div *ngIf="forecast">
-					<div class="col-md-4">
-						<i class="icon-today wi wi-owm-{{forecast.weather[0].id}}"></i>
-						<h6>{{forecast.weather[0].description | uppercase}}</h6>
 					</div>
-					<div class="col-md-4">
-						<p title="now">
-							<i class="wi wi-thermometer-internal"></i>
-							{{forecast.temp.day}}&deg;C
-						</p>
-						<p title="morning">
-							<i class="wi wi-sunrise"></i> {{forecast.temp.morn}}&deg;C
-						</p>
-						<p title="night">
-							<i class="wi wi-sunset"></i> {{forecast.temp.night}}&deg;C
-						</p>
-						<p title="humidity">
-							<i class="wi wi-humidity"></i> {{forecast.humidity}}%
-						</p>
-					</div>
-					<div class="col-md-4">
-						<p title="max temperature">
-						<i class="wi wi-thermometer"></i> {{forecast.temp.max}}&deg;C</p>
-						<p title="min temperature">
-							<i class="wi wi-thermometer-exterior"></i> {{forecast.temp.min}}&deg;C
-						</p>
-						<p title="pressure">
-							<i class="wi wi-barometer"></i> {{forecast.pressure}} hpa
-						</p>
-						<p title="speed of wind">
-							<i class="wi wi-strong-wind"></i> {{forecast.speed}} m/s
-						</p>
+					<div class="col-md-12 weather-info">
+						<div *ngIf="!cityRes">
+							You don't have added city in your profile.
+						</div>
+						<div *ngIf="forecast" class="col-md-12 forecast">
+							<div class="col-md-3" title="today">
+								<i class="icon-today wi wi-owm-{{forecast.weather[0].id}}"></i>
+								<h5>{{forecast.weather[0].description | uppercase}}</h5>
+							</div>
+							<div class="col-md-3">
+								<p title="now">
+									<i class="wi wi-thermometer-internal"></i>
+									{{forecast.temp.day}}&deg;C
+								</p>
+								<p title="morning">
+									<i class="wi wi-sunrise"></i> {{forecast.temp.morn}}&deg;C
+								</p>
+								<p title="night">
+									<i class="wi wi-sunset"></i> {{forecast.temp.night}}&deg;C
+								</p>
+								<p title="humidity">
+									<i class="wi wi-humidity"></i> {{forecast.humidity}}%
+								</p>
+							</div>
+							<div class="col-md-3">
+								<p title="max temperature">
+								<i class="wi wi-thermometer"></i> {{forecast.temp.max}}&deg;C</p>
+								<p title="min temperature">
+									<i class="wi wi-thermometer-exterior"></i> {{forecast.temp.min}}&deg;C
+								</p>
+								<p title="pressure">
+									<i class="wi wi-barometer"></i> {{forecast.pressure}} hpa
+								</p>
+								<p title="speed of wind">
+									<i class="wi wi-strong-wind"></i> {{forecast.speed}} m/s
+								</p>
+							</div>
+							<div class="col-md-3">
+								<p title="city name">
+									{{mainInfo.city.name}}
+								</p>
+								<p title="country">
+								{{mainInfo.city.country}}</p>
+								<p title="latitude">
+									{{mainInfo.city.coord.lat}}
+								</p>
+								<p title="longitude">
+									{{mainInfo.city.coord.lon}}
+								</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
