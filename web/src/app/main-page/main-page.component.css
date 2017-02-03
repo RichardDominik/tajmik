@@ -1,4 +1,4 @@
-.home {
+.main{
 	width: 100% !important;
 	height: 650px;
 	max-height: auto;
@@ -9,8 +9,97 @@
 	background-position: center;
 }
 
-.info {
+.overlay {
+	width: 100% !important;
+	height: 650px;
+	max-height: auto;
+	background-color: rgba(0, 0, 0, .7)
+}
+
+.main-content {
+	text-align: center;
+	padding-top: 280px;
+}
+
+.main-content h1 {
+	font-weight: 200;
+	color: #fff;
+}
+
+.main-content button {
+	background: #20D7AF;
+	border-radius:  0px;
+	outline: none;
+	font-weight: 200;
+	color:  #fff;
+	margin-top: 20px;
+}
+
+
+.learn-more {
+	width: 100%;
+	min-height: 600px;
+	max-height: auto;
+	background-color: #F7F7F7
+}
+
+.learn-more img {
+	height: 400px;
+	width: auto;
+}
+
+.learn-more .container {
+	padding-top: 120px;
+}
+
+.learn-more p {
+	font-weight: 200;
+}
+
+.users {
+	width: 100%;
+	height: 150px;
+	background-color: #999;
+	background-attachment: fixed;
+	background-image: url('../../img/users_background.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.users h1 {
+	text-align: center;
+	margin-top: 50px;
+	font-weight: 200;
+	color: #fff;
+}
+
+.users i {
+	font-size: 1em;
+	vertical-align: bottom;
+}
+
+.features {
 	width: 100%;
 	height: 500px;
 	background-color: #F7F7F7;
 }
+
+.our-app {
+	width: 100%;
+	height: 500px;
+	background-color: #FFF;
+}
+
+.our-app img{
+	height: 250px;
+	width: auto;
+}
+
+footer {
+	width: 100%;
+	height: 250px;
+	background-color: #222222;
+}
+
+
