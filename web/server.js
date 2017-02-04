@@ -43,6 +43,8 @@ db.once('open', () => {
     require('./routes/tasks.server.routes.js')(app);
     //Event
     require('./routes/event.server.routes.js')(app);
+    //Users count 
+    require('./routes/users.server.routes.js')(app);
     //AUTHENTICATION
     // create a new user account
     app.post('/api/signup', (req, res) => {

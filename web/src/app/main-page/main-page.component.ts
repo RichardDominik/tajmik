@@ -1,12 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MainPageService } from './main-page.service';
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.css']
+  styleUrls: ['./main-page.component.css'],
+  providers: [MainPageService]
 })
-export class MainPageComponent {
+export class MainPageComponent implements OnInit{
 
-  constructor() { }
+	users: number;
 
+	constructor(private mainPageService: MainPageService) { }
+
+  	ngOnInit(){
+  		this.mainPageService.getUsersCount()
+  			.subscribe(res => {
+  			this.users = res;
+  		})
+  	}
+  	
 }

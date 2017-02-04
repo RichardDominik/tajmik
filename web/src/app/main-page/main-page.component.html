@@ -19,10 +19,51 @@
 	
 </div>
 <div class="users col-md-12">
-	<h1>Now we have <i class="material-icons">supervisor_account</i>100 users</h1>
+	<h1>Now we have <i class="material-icons">supervisor_account</i> {{users}} {{users == 1 ? 'user' : 'users'}}</h1>
 </div>
 <div class="features col-md-12" id="features">
-	
+	<div class="container features-info">
+		<h2>Lorem ipsum dolor</h2>
+		<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
+		<div class="row first-row">
+			<div class="col-md-4">
+				<h4><i class="material-icons">done</i>Task Manager</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet elit at felis ultrices commodo eu et tellus. 
+				</p>
+			</div>
+			<div class="col-md-4">
+				<h4> <i class="material-icons">event</i>Event Manager</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet elit at felis ultrices commodo eu et tellus. 
+				</p>
+			</div>
+			<div class="col-md-4">
+				<h4><i class="material-icons">filter_drama</i> 7 day forecast</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet elit at felis ultrices commodo eu et tellus. 
+				</p>
+			</div>
+		</div>
+		<div class="row second-row">
+			<div class="col-md-4">
+				<h4><i class="material-icons">show_chart</i> Charts</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet elit at felis ultrices commodo eu et tellus. 
+				</p>
+			</div>
+			<div class="col-md-4">
+				<h4><i class="material-icons">phone_iphone</i>Web and mobile</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet elit at felis ultrices commodo eu et tellus. 
+				</p>
+			</div>
+			<div class="col-md-4">
+				<h4><i class="material-icons">money_off</i>It's free!</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet elit at felis ultrices commodo eu et tellus. </p>
+			</div>
+		</div>
+	</div>
 </div>
 <div class="our-app col-md-12" id="our-app">
 	<div class="container">
@@ -31,7 +72,7 @@
 	</div>
 </div>
 <div class="get-started col-md-12">
-	<button class="btn btn-default">Get started with Tajmik</button>
+	<button class="btn btn-default" routerLink="/signup">Get started with Tajmik</button>
 </div>
 <footer class="col-md-12">
 	<p>Copyright &copy; 2017. Available as open source <a href="#">GitHub</a></p>
