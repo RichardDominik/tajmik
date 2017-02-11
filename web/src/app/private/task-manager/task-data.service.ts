@@ -5,13 +5,11 @@ import 'rxjs/Rx';
 
 import { AppComponent } from '../../app.component';
 
-
-import { Task } from './task' 
-
 @Injectable()
 export class TaskDataService {
   	tokenID: string;
   	options: any;
+    taskOptions: any;
 
   	constructor(@Inject(Http) private http: Http , private appComponent: AppComponent) {
     	this.tokenID = this.appComponent.tokenID;
@@ -20,55 +18,45 @@ export class TaskDataService {
     	this.options = new RequestOptions({headers: headers});
   	}
 
-	lastId: number = 0;
-
-	tasks: Task[] = [];
-
-
-  	addTask(task: Task): TaskDataService {
-  		if(!task.id){
-  			task.id = ++this.lastId;
-  		}
-  		this.tasks.push(task);
-  		return this;
+	
+  	addTask(title: string, completed: boolean, creator:any): Observable<any>{
+  		return this.http.post('api/tasks', {
+  			title: title,
+  			completed: completed,
+  			creator: creator
+  		})
+  		.map(res => res.json())
+  		.catch(error => {
+  			return Observable.throw(error.json()); 
+  		})
   	}
 
-  	deleteTaskById(id: number): TaskDataService {
-  		this.tasks = this.tasks
-  			.filter(task => task.id !== id);
-  			return this;
+  	getTasks(){
+  		return this.http.get('api/tasks', this.options)
+  			.map(res => res.json());
   	}
 
-	updateTaskById(id: number, values: Object = {}): Task {
-		let task = this.getTaskById(id);
-		if (!task) {
-			return null;
-		}
-		Object.assign(task, values);
-		return task;
-	}  	
+    removeTasks(taskID): Observable<any>{
+      let header = new Headers({'Content-Type': 'application/json'}); 
+      header.append('taskID',` ${taskID}`)
+      this.taskOptions = new RequestOptions({headers: header});
+      return this.http.post('api/task/remove',{}, this.taskOptions)
+       .map(res => res.json())
+        .catch(error => {
+          return Observable.throw(error.json()); 
+        })
+    }
 
-	getAllTasks(): Task[] {
-		return this.tasks;
-	}
-
-	getTaskById(id: number): Task {
-		return this.tasks
-			.filter(task => task.id === id)
-			.pop();
-	}
-
-	toggleTaskComplete(task: Task){
-		let updateTask = this.updateTaskById(task.id, {
-			complete: !task.complete
-		});
-
-		return updateTask;
-	}
-
-	getTasks(){
-		return this.http.get('/api/tasks', this.options)
-			.map(res => res.json());
-	}
-
+    updateTask(taskID, newValue): Observable<any>{
+      let header = new Headers({'Content-Type': 'application/json'}); 
+      header.append('taskID',` ${taskID}`)
+      this.taskOptions = new RequestOptions({headers: header});
+      return this.http.post('api/task/update', {
+        completed: newValue
+      }, this.taskOptions)
+       .map(res => res.json())
+        .catch(error => {
+          return Observable.throw(error.json()); 
+        })
+    }
 }

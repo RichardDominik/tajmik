@@ -1,7 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { AppComponent } from '../../app.component';
 
-import { Task } from './task';
 import { TaskDataService } from './task-data.service';
 
 @Component({
@@ -14,42 +13,59 @@ import { TaskDataService } from './task-data.service';
 export class TaskManagerComponent implements OnInit {
 
   isLogged: boolean;
+  tokenID: string;
   anyData: boolean = false;
-  taskId: any;
-	newTask: Task = new Task();
+  title: string;
+  completed: boolean;
+  res: any;
 
   constructor(private appComponent: AppComponent, private taskdataService: TaskDataService) {
   	this.isLogged = this.appComponent.isLogged;
+    this.tokenID = this.appComponent.tokenID;
    }
 
-   data(){
+  addTask(form){
+    this.taskdataService.addTask(form.title, form.completed, this.tokenID)
+      .subscribe(
+        res => {
+          location.reload()
+        }
+       )
+  }
+
+  removeTask(taskID){
+    this.taskdataService.removeTasks(taskID)
+      .subscribe(
+        res => {
+          location.reload();
+        }
+        )
+  }
+data(){
      this.anyData = true;
    }
 
-   addTask() {
-   	this.taskdataService.addTask(this.newTask);
-   	this.newTask = new Task();
-   }
-
-   toggleTaskComplete(task){
-   	this.taskdataService.toggleTaskComplete(task);
-   }
-
-   removeTask(task){
-   	this.taskdataService.deleteTaskById(task.id);
-   }
-
-   get tasks(){
-   	return this.taskdataService.getAllTasks()
-   }
-
    ngOnInit(){
-     this.taskdataService.getTasks()
-       .subscribe(res => {
-         console.log(res);
-           this.taskId = res[0]._id;
-           console.log(this.taskId);
-       })
+    this.taskdataService.getTasks()
+    .subscribe(res => {
+      this.res = res;
+      console.log(res);
+      if(this.res !== undefined){
+        this.title = this.res.title;
+        this.completed = this.res.completed;
+      }
+    });
    }
 
+   changeValue(newValue, taskID){
+     this.taskdataService.updateTask(taskID, newValue)
+     .subscribe(
+        res => {
+          if(!res){
+            console.log('error');
+          }
+        }
+       )
+   }
+  
 }

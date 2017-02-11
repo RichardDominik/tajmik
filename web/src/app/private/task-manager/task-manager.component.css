@@ -26,7 +26,6 @@
 	height: 40px;
 	font-weight: 200;
 	border:  1px solid #20D7AF;
-	border-radius: 25px;
 	color: #666;
 	outline: none;
 	background-color: #f1f1f1;
@@ -62,6 +61,12 @@ li {
 	text-align: center;
 }
 
+.btn-task {
+	outline: none;
+	border-radius: 0px;
+	background: #20D7AF;
+	color: #fff;
+}
 .main {
 	text-align: center;
 	margin-top: 15px;

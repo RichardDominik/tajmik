@@ -48,11 +48,11 @@ export class AppComponent implements OnInit, OnChanges, AfterViewInit {
 		
 	}
 
-  	ngOnInit(){
-  		console.log('initialize')
-  	}
+  ngOnInit(){
+  	console.log('initialize')
+  }
 
-  	ngAfterViewInit(){
+   ngAfterViewInit(){
   		var links = $('.navigation').find('a');
       var pull = $('#pull').hide();
       var menu = $('#nav ul');

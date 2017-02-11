@@ -46,73 +46,70 @@
 						</div>
 					</div>
 					<div class="offset-md-1 col-md-5 tasks-info">
-						<p>Tasks</p>
+						<h3>Tasks</h3>
 						<h1 *ngIf="!taskRes">You dont't have added tasks</h1>
-						<div *ngIf="taskRes">
-							<ul  *ngFor="let all of taskRes ; let i = index ">
-								<li *ngIf="i <= 2">
-									<p>
-										{{all.title}}
-									</p>
-									<div>
-										<input type="checkbox" [(ngModel)]="all.completed">
+						<div *ngIf="taskRes" class="main">
+							<ul class="task-list"  *ngFor="let all of taskRes ; let i = index ">
+								<li *ngIf="i <= 3" class="offset-md-1 col-md-10">
+									<div class="view">
+										<label class="task" [ngClass]="{'checked': all.completed}">
+											{{all.title}}
+										</label>
+										<input type="checkbox" id="checkbox-task" [(ngModel)]="all.completed" (ngModelChange)="changeValue($event, all._id)">
+										<button class="destroy" (click)="removeTask(all._id)"><i class="material-icons">clear</i></button>
 									</div>
-								</ul>
-							</div>
+									
+								</li>
+							</ul>
 						</div>
 					</div>
-					<div class="col-md-12 weather-info">
-						<div *ngIf="!cityRes">
-							You don't have added city in your profile.
+				</div>
+				<div class="col-md-12 weather-info">
+					<div *ngIf="!cityRes">
+						You don't have added city in your profile.
+					</div>
+					<div *ngIf="forecast" class="col-md-12 forecast">
+						<div class="col-md-3" title="today">
+							<i class="icon-today wi wi-owm-{{forecast.weather[0].id}}"></i>
+							<h5>{{forecast.weather[0].description | uppercase}}</h5>
 						</div>
-						<div *ngIf="forecast" class="col-md-12 forecast">
-							<div class="col-md-3" title="today">
-								<i class="icon-today wi wi-owm-{{forecast.weather[0].id}}"></i>
-								<h5>{{forecast.weather[0].description | uppercase}}</h5>
-							</div>
-							<div class="col-md-3">
-								<p title="now">
-									<i class="wi wi-thermometer-internal"></i>
-									{{forecast.temp.day}}&deg;C
-								</p>
-								<p title="morning">
-									<i class="wi wi-sunrise"></i> {{forecast.temp.morn}}&deg;C
-								</p>
-								<p title="night">
-									<i class="wi wi-sunset"></i> {{forecast.temp.night}}&deg;C
-								</p>
-								<p title="humidity">
-									<i class="wi wi-humidity"></i> {{forecast.humidity}}%
-								</p>
-							</div>
-							<div class="col-md-3">
-								<p title="max temperature">
-								<i class="wi wi-thermometer"></i> {{forecast.temp.max}}&deg;C</p>
-								<p title="min temperature">
-									<i class="wi wi-thermometer-exterior"></i> {{forecast.temp.min}}&deg;C
-								</p>
-								<p title="pressure">
-									<i class="wi wi-barometer"></i> {{forecast.pressure}} hpa
-								</p>
-								<p title="speed of wind">
-									<i class="wi wi-strong-wind"></i> {{forecast.speed}} m/s
-								</p>
-							</div>
-							<div class="col-md-3">
-								<p title="city name">
-									{{mainInfo.city.name}}
-								</p>
-								<p title="country">
-								{{mainInfo.city.country}}</p>
-								<p title="latitude">
-									{{mainInfo.city.coord.lat}}
-								</p>
-								<p title="longitude">
-									{{mainInfo.city.coord.lon}}
-								</p>
-							</div>
+						<div class="col-md-3">
+							<p title="now">
+								<i class="wi wi-thermometer-internal"></i>
+								{{forecast.temp.day}}&deg;C
+							</p>
+							<p title="morning">
+								<i class="wi wi-sunrise"></i> {{forecast.temp.morn}}&deg;C
+							</p>
+							<p title="night">
+								<i class="wi wi-sunset"></i> {{forecast.temp.night}}&deg;C
+							</p>
+							<p title="humidity">
+								<i class="wi wi-humidity"></i> {{forecast.humidity}}%
+							</p>
+						</div>
+						<div class="col-md-3">
+							<p title="max temperature">
+							<i class="wi wi-thermometer"></i> {{forecast.temp.max}}&deg;C</p>
+							<p title="min temperature">
+								<i class="wi wi-thermometer-exterior"></i> {{forecast.temp.min}}&deg;C
+							</p>
+							<p title="pressure">
+								<i class="wi wi-barometer"></i> {{forecast.pressure}} hpa
+							</p>
+							<p title="speed of wind">
+								<i class="wi wi-strong-wind"></i> {{forecast.speed}} m/s
+							</p>
+						</div>
+						<div class="col-md-3">
+							<p title="city name">
+								{{mainInfo.city.name}}
+							</p>
+							<p title="country">
+							{{mainInfo.city.country}}</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>

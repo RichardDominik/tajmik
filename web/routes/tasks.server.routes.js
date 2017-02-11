@@ -77,7 +77,7 @@ module.exports = function(app) {
 	app.post('/api/task/update', function(req, res){
 		var items = {
 			completed: req.body.completed
-		};
+		}
 
 		var id = req.headers.taskid;
 
@@ -94,7 +94,7 @@ module.exports = function(app) {
 	// remove task by taskID 
 	app.post('/api/task/remove', function(req, res){
 		var id = req.headers.taskid;
-
+		
 		Task.remove({_id: id}, function(err, result){
 			if(err){
 				res.json(err);

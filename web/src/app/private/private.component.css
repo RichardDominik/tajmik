@@ -69,9 +69,15 @@
 
 .tasks-info {
 	height: 250px;
-	background-color: #fff;
+	background-color: #3E464C;
 }
 
+.tasks-info h3 {
+	margin-top: 8px;
+	text-align: center;
+	font-weight: 200;
+	color: #fff;
+}
 
 .forecast {
 	text-align: center;
@@ -85,3 +91,75 @@
 	margin-top: 15px;
 	font-weight: 200;
 }
+
+.destroy {
+	background: none;
+	cursor: pointer;
+	outline: none;
+	border: none;
+	color: #F44336;
+}
+
+
+.task-list {
+	margin-top: 20px;
+}
+
+li {
+	list-style-type: none;
+}
+
+
+.main {
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.main li {
+	background-color: #fff;
+	text-align: center;
+	margin-bottom: 1px;
+	margin-top: 1px;
+}
+
+.main li label{
+	font-weight: 200;
+	font-size: 1.25em;
+}
+
+.view {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.checked {
+  text-decoration: line-through;
+  color:  #373a3c;
+} 
+
+ #checkbox-task{
+    border-radius:15px;
+    -webkit-appearance:button;
+    border: solid 1px #20D7AF;
+    transition: background .4s ease;
+    background: none;
+    color: #000;
+    white-space: nowrap;
+    overflow:hidden;
+    width:25px;
+    height:25px;
+    outline: none;
+    margin-bottom: 8px;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+ 
+#checkbox-task:checked{
+	transition: background-color .4s ease;
+    background-color: #20D7AF;
+    outline: none;
+}
+
+

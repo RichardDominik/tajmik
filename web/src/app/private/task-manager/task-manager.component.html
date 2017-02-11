@@ -5,32 +5,35 @@
 		</div>
 		<div *ngIf="isLogged">
 			<section class="todoapp">
-				<section class="error" *ngIf="tasks.length == 0">
-					<h1>Nothing here, yet.</h1>
-					<h4>Click add to add task.</h4>
-					<button (click)='data()'><i class="material-icons">add</i></button>
+				<section class="error" *ngIf="!res">
+					<h1>Something is wrong :( We are working on it.</h1>
 				</section>
+				<div *ngIf="res">
 				<div class="tasks">
-					<header *ngIf="anyData" class="header col-md-12">
-						<input class="new-task  offset-md-4 col-md-4" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTask.title" (keyup.enter)="addTask()">
+					<header *ngIf="res" class="header col-md-12">
+					<form #f="ngForm" (ngSubmit)="addTask(f.value)">
+						<input type="text" class="new-task  offset-md-4 col-md-4" placeholder="What needs to be done?" autofocus="" [(ngModel)]="title" name="title">
+						<button type="submit" class="col-md-4 offset-md-4 btn btn-task">Add task</button>
+					</form>
 					</header>
-					<section class="main offset-md-3 col-md-6" *ngIf="tasks.length > 0">
+					<section class="main offset-md-3 col-md-6" *ngIf="res.length > 0">
 						<ul class="task-list">
-							<li *ngFor="let task of tasks" [class.completed]="task.complete">
+							<li *ngFor="let task of res" >
 								<div class="view">
-									<label class="task" [ngClass]="{'checked': task.completed}">{{task.title}}</label>					
-									<input type="checkbox" (click)="toggleTaskComplete(task)" [(ngModel)]="task.completed" checked="blue">
-									<button class="destroy" (click)="removeTask(task)"><i class="material-icons">clear</i></button>
+									<label class="task" [ngClass]="{'checked': task.completed}">{{task.title}}</label>		
+									<input type="checkbox" [(ngModel)]="task.completed" (ngModelChange)="changeValue($event, task._id)">
+									<button class="destroy" (click)="removeTask(task._id)"><i class="material-icons">clear</i></button>
 								</div>
 							</li>
 						</ul>
 					</section>
 				</div>
-				<footer class="col-md-12" *ngIf="tasks.length > 0">
+				<footer class="col-md-12" *ngIf="res.length > 0">
 					<div class="info">
-						<span>{{tasks.length}}</span>
+						<span>{{res.length}}</span>
 					</div>
 				</footer>
+			</div>
 			</section>
 		</div>
 	</div>

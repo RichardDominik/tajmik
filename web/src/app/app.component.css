@@ -105,9 +105,6 @@ i {
 
 .small-nav {
   display: none;
-  text-align: center !important;
-  margin: 0 ;
-  padding: 0;
   height: 100% ;
   width: 100%;
 }
@@ -117,10 +114,6 @@ i {
   text-align: center !important;
 }
 
-.navigation li{
-   text-align: center !important;
-    margin: 0 auto;
-}
 
 .small-menu-ul {
   padding-top: 50px;
