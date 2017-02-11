@@ -74,58 +74,36 @@ module.exports = function(app) {
 			});
 	});
 
-	app.get('/api/events/:eventID', function(req, res){
-		res.json(req.event);
-	});
+	// update event by eventID
+	app.post('/api/event/update', function(req, res){
+		var items = {
+			completed: req.body.completed
+		};
 
-	app.put('/api/events/:eventID', function(req, res){
-		var event = req.event;
+		var id = req.headers.eventid;
 
-		event.title = req.body.title;
-		event.comment = req.body.comment;
-		event.completed = req.body.completed;
-		event.done = req.body.done;
-
-		event.save(function(err){
+		Task.update({_id: id}, {$set: items},function(err, result){
 			if(err){
-				return res.status(400).send({
-					message: 'error'
-				});
+				res.json(err);
 			} 
-			else {
-				res.json(event);
+			if(result){
+				res.json(result);
 			}
-		});
+		})
 	});
 
-	app.delete('/api/events/:eventID', function(req, res){
-		var event = req.event;
+	// remove task by taskID 
+	app.post('/api/event/remove', function(req, res){
+		var id = req.headers.eventid;
 
-		event.remove(function(err){
+		Task.remove({_id: id}, function(err, result){
 			if(err){
-				return res.status(400).send({
-					message: 'error'
-				});
+				res.json(err);
 			}
-			else {
-				res.json(event);
+			if(result){
+				res.json(result);
 			}
-		});
-	});
-
-	app.param('eventID', function(req, res, next, id){
-		Event.findById(id).populate('creator')
-			.exec(function(err, event){
-				if(err){
-					return next(err);
-				}
-				if(!event){
-					return next(new Error('Failed to load event ' + id));
-				}
-
-				req.event = event;
-          		next();
-			});
+		})
 	});
 
 };

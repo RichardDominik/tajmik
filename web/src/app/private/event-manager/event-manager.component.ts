@@ -38,6 +38,7 @@ export class EventManagerComponent implements OnInit {
     this.eventdataService.getEvents()
     .subscribe(res => {
       this.res = res;
+      console.log(res);
       if(this.res !== undefined){
         this.title = this.res.title;
         this.comment = this.res.comment;

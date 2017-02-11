@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AppComponent } from '../../app.component';
 
 import { Task } from './task';
@@ -11,10 +11,11 @@ import { TaskDataService } from './task-data.service';
   providers: [TaskDataService]
 })
 
-export class TaskManagerComponent {
+export class TaskManagerComponent implements OnInit {
 
   isLogged: boolean;
   anyData: boolean = false;
+  taskId: any;
 	newTask: Task = new Task();
 
   constructor(private appComponent: AppComponent, private taskdataService: TaskDataService) {
@@ -39,7 +40,16 @@ export class TaskManagerComponent {
    }
 
    get tasks(){
-   	return this.taskdataService.getAllTasks();
+   	return this.taskdataService.getAllTasks()
+   }
+
+   ngOnInit(){
+     this.taskdataService.getTasks()
+       .subscribe(res => {
+         console.log(res);
+           this.taskId = res[0]._id;
+           console.log(this.taskId);
+       })
    }
 
 }

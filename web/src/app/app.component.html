@@ -1,7 +1,8 @@
-<nav class="navbar navbar-light nav_background navbar-fixed-top" *ngIf="!isLogged">
+<nav class="navbar navbar-light nav_background navbar-fixed-top" *ngIf="!isLogged" id="nav">
 	<div class="container">
-		<a class="navbar-brand" href="#main"><img src="../img/main_logo.png" class="logo" alt="logo"></a>
-		<ul class="nav navbar-nav float-xs-left ">
+			<a class="navbar-brand" href="#main"><img src="../img/main_logo.png" class="logo" alt="logo"></a>
+			<a class="navbar-brand float-xs-right" href="#" id="pull"></a>
+		<ul class="nav navbar-nav float-xs-left navigation">
 			<li class="nav-item"><a class="nav-link" href="#learn-more">LEARN MORE</a></li>
 			<li class="nav-item"><a class="nav-link" href="#features">FEATURES</a></li>
 			<li class="nav-item"><a class="nav-link" href="#our-app">OUR APP</a></li>
@@ -14,7 +15,7 @@
 </nav>
 <div *ngIf="isLogged">
 	<div class="navbar navbar-light nav_background navbar-fixed-top">
-	<a class="navbar-brand dashboard_logo" routerLink="/private"><img src="../img/main_logo.png" class="logo" alt="logo"></a>
+		<a class="navbar-brand dashboard_logo" routerLink="/private"><img src="../img/main_logo.png" class="logo" alt="logo"></a>
 		<div class="dashboard_nav">
 			<ul class="nav navbar-nav float-xs-right">
 				<li class="nav-item"><a class="nav-link email" routerLink="/profile"><i class="material-icons">account_circle</i>{{tokenEmail}}</a></li>

@@ -73,4 +73,38 @@ module.exports = function(app) {
 			});
 	});
 
+	// update task by taskID
+	app.post('/api/task/update', function(req, res){
+		var items = {
+			completed: req.body.completed
+		};
+
+		var id = req.headers.taskid;
+
+		Task.update({_id: id}, {$set: items},function(err, result){
+			if(err){
+				res.json(err);
+			} 
+			if(result){
+				res.json(result);
+			}
+		})
+	});
+
+	// remove task by taskID 
+	app.post('/api/task/remove', function(req, res){
+		var id = req.headers.taskid;
+
+		Task.remove({_id: id}, function(err, result){
+			if(err){
+				res.json(err);
+			}
+			if(result){
+				res.json(result);
+			}
+		})
+	});
+
+
 };
+
