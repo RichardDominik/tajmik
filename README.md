@@ -8,8 +8,10 @@ Web and mobile Time Management Application
  * jQuery
  * Bootstrap 4 alpha
  * Chart.js
+ 
 ### Mobile:
  * React Native
+ 
 ### Server:
  * Node.js(Express.js)
  * MongoDB
@@ -21,5 +23,4 @@ Web and mobile Time Management Application
 	`node server.js` for running server.
 	`npm start` for running angular.
 	Navigate to `http://localhost:4200/`.
-}
 ```
