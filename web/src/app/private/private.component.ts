@@ -9,6 +9,7 @@ import { EventDataService } from './event-manager/event-data.service';
 import { TaskDataService } from './task-manager/task-data.service';
 import { PrivateDataService } from './private-data.service'
 
+
 @Component({
   selector: 'app-private',
   templateUrl: './private.component.html',
@@ -48,6 +49,26 @@ export class PrivateComponent implements OnInit {
       ) {
       this.isLogged = this.appComponent.isLogged;
     }
+
+    removeTask(taskID){
+    this.taskdataService.removeTasks(taskID)
+      .subscribe(
+        res => {
+          location.reload();
+          }
+        )
+    }
+
+    changeValue(newValue, taskID){
+     this.taskdataService.updateTask(taskID, newValue)
+     .subscribe(
+        res => {
+          if(!res){
+            console.log('error');
+          }
+        }
+       )
+     }  
 
   	ngOnInit() {
   		this.chartService.getIncompletedEvents()

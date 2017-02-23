@@ -14,7 +14,6 @@ export class TaskManagerComponent implements OnInit {
 
   isLogged: boolean;
   tokenID: string;
-  anyData: boolean = false;
   title: string;
   completed: boolean;
   res: any;
@@ -41,9 +40,6 @@ export class TaskManagerComponent implements OnInit {
         }
         )
   }
-data(){
-     this.anyData = true;
-   }
 
    ngOnInit(){
     this.taskdataService.getTasks()

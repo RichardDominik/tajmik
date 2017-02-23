@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../../app.component';
+import { DatepickerModule } from 'angular2-material-datepicker'
 
 import { EventDataService } from './event-data.service';
 
@@ -17,7 +18,13 @@ export class EventManagerComponent implements OnInit {
   comment: string;
   done: string;
   completed: boolean;
+  inputText: any;
   res: any;
+  newEvent: boolean = false;
+
+  showForm(){
+    this.newEvent= !this.newEvent;
+  }
 
 	
   constructor(private appComponent: AppComponent, private eventdataService: EventDataService) {
@@ -31,6 +38,28 @@ export class EventManagerComponent implements OnInit {
         res => {
             location.reload();
           }
+      )
+  }
+
+  removeEvent(eventID){
+    this.eventdataService.removeEvents(eventID)
+      .subscribe(
+        res => {
+          location.reload();
+        }
+      )
+  }
+
+  changeValue(newValue, eventID){
+    this.eventdataService.updateEvent(eventID, newValue)
+    .subscribe(
+        res => {
+          if(!res){
+            console.log('error');
+          } else {
+            console.log(newValue, eventID)
+          }
+        }
       )
   }
 

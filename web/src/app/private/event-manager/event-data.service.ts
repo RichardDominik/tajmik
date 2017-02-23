@@ -10,6 +10,7 @@ export class EventDataService {
 
   tokenID: string;
   options: any;
+  eventOptions: any;
 
   constructor(@Inject(Http) private http: Http , private appComponent: AppComponent) {
     this.tokenID = this.appComponent.tokenID;
@@ -35,6 +36,30 @@ export class EventDataService {
   getEvents(){
     return this.http.get('/api/events', this.options)
     .map(res => res.json());
+  }
+
+  removeEvents(eventID): Observable<any>{
+    let header = new Headers({'Content-Type': 'application/json'}); 
+    header.append('eventID',` ${eventID}`)
+    this.eventOptions = new RequestOptions({headers: header});
+    return this.http.post('api/event/remove',{}, this.eventOptions)
+       .map(res => res.json())
+        .catch(error => {
+          return Observable.throw(error.json()); 
+        })
+  }
+
+  updateEvent(eventID, newValue): Observable<any>{
+    let header = new Headers({'Content-Type': 'application/json'}); 
+    header.append('eventID',` ${eventID}`)
+    this.eventOptions = new RequestOptions({headers: header});
+    return this.http.post('api/event/update', {
+        completed: newValue
+      }, this.eventOptions)
+       .map(res => res.json())
+        .catch(error => {
+          return Observable.throw(error.json()); 
+        })
   }
 
 }

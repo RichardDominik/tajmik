@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { DatepickerModule } from 'angular2-material-datepicker'
 
 import 'rxjs/add/operator/map';
 
@@ -42,6 +43,7 @@ import { AuthService } from './auth/auth.service';
     BrowserModule,
     FormsModule,
     ChartsModule,
+    DatepickerModule,
     ReactiveFormsModule,
     HttpModule,
     routes

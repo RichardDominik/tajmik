@@ -28,20 +28,17 @@
 			</div>
 			<div class="col-md-12 info">
 				<div class="col-md-6 events-info">
-					<p>Events</p>
+					<h3>Upcoming Events</h3>
 					<h1 *ngIf="!eventRes">You don't have added events.</h1>
-					<div *ngIf="eventRes">
+					<div *ngIf="eventRes" class="eventRes">
 						<ul  *ngFor="let all of eventRes ; let i = index ">
 							<li *ngIf="i <= 1">
 								<p>
 									{{all.title}}
 								</p>
 								<p>
-									{{all.done}}
+									{{all.done | date}}
 								</p>
-								<div>
-									<input type="checkbox" [(ngModel)]="all.completed">
-								</div>
 							</ul>
 						</div>
 					</div>

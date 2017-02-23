@@ -80,9 +80,13 @@ module.exports = function(app) {
 			completed: req.body.completed
 		};
 
+		console.log(items);
+
 		var id = req.headers.eventid;
 
-		Task.update({_id: id}, {$set: items},function(err, result){
+		console.log(id);
+
+		Event.update({_id: id}, {$set: items},function(err, result){
 			if(err){
 				res.json(err);
 			} 
@@ -96,7 +100,7 @@ module.exports = function(app) {
 	app.post('/api/event/remove', function(req, res){
 		var id = req.headers.eventid;
 
-		Task.remove({_id: id}, function(err, result){
+		Event.remove({_id: id}, function(err, result){
 			if(err){
 				res.json(err);
 			}

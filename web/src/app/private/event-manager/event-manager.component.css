@@ -7,8 +7,53 @@
 	display: flex;
     -ms-flex-pack: center;
         justify-content: center;
-    -ms-flex-align: center;
-        align-items: center;
-    padding: 60px 0px 0px 0px;
+    padding: 80px 0px 0px 0px;
 }
 
+.event-button {
+	outline: none;
+	background: #20D7AF;
+	color: #fff;
+	font-weight: 200;
+	border-radius: 0px;
+	margin-top: 10px;
+}
+
+.form {
+	margin-top: 20px;
+}
+
+label {
+	font-weight: 200;
+	margin-bottom: 0px;
+}
+
+.form-group input {
+	padding: 8px 0px 8px 0px;
+	border-radius: 0px;
+	border: none;
+	border-bottom: 1px solid #D7D7D7;
+	background: none;
+}
+
+.form-group input:focus { 
+    background: none;
+    border-bottom: 1px solid #20D7AF;
+}
+
+.btn-file {
+	margin-top:  15px;
+}
+
+.event-table {
+	margin-top: 60px;
+}
+
+.destroy {
+	color:  #F34336;
+	vertical-align: bottom;
+}
+
+table {
+	font-weight: 200 ;
+}
