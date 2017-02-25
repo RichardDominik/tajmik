@@ -1,25 +1,26 @@
 # Tajmik
-Tajmik- time manager 
+
+Web and mobile Time Management Application
+
+## Technologies:
+### Web:
+ * Angular 2 
+ * jQuery
+ * Bootstrap 4 alpha
+ * Chart.js
  
-Run `npm install` for install all dependencies. 
-Run `monngod` for running database.
-Run `node server.js` for running server.
-Run `npm start` for running angular.
-Navigate to `http://localhost:4200/`.
+### Mobile:
+ * React Native
+ 
+### Server:
+ * Node.js(Express.js)
+ * MongoDB
 
-
-##API
-`api/signup` for signup new user with Object{
-	email: email,
-	password: password
-}
-
-`api/signin` for signin user with Object{
-	email: email,
-	password: password
-}
-
-## Technologies used in project:
-### Web - Angular.js, jQuery, CSS3, HTML5
-### Mobile - React Native
-### Backend - Node.js(Express.js), MongoDB
+## Running locally
+```bash
+	`npm install` for install all dependencies. 
+	`monngod` for running database.
+	`node server.js` for running server.
+	`npm start` for running angular.
+	Navigate to `http://localhost:4200/`.
+```
