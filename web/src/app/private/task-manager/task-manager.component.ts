@@ -45,7 +45,6 @@ export class TaskManagerComponent implements OnInit {
     this.taskdataService.getTasks()
     .subscribe(res => {
       this.res = res;
-      console.log(res);
       if(this.res !== undefined){
         this.title = this.res.title;
         this.completed = this.res.completed;

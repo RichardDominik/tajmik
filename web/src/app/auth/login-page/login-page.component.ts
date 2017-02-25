@@ -22,6 +22,7 @@ export class LoginPageComponent {
 					if(res.success){
 						this.authService.saveToken(res.token);
 						this.router.navigate(['/private']);
+						location.reload(true);
 					} else {
 						this.error = res.msg;
 					}

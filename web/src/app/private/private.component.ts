@@ -121,7 +121,6 @@ export class PrivateComponent implements OnInit {
                 this.city = this.cityRes.city;
                 this.weatherService.getWeather(this.city)
                   .subscribe(forecast => {
-                    console.log(forecast);
                     this.mainInfo = forecast;
                     this.forecast = forecast.list[0];
                 });

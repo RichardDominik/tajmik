@@ -27,8 +27,9 @@ export class AppComponent implements OnInit, OnChanges, AfterViewInit {
 			state => this.isLogged = state
 		);
 
-  		this.isLogged = this.authService.isAuthenticate();
-
+   
+    this.isLogged = this.authService.isAuthenticate();
+  	
 		console.log(this.isLogged);
 		if(this.isLogged == true){
   			this.token = localStorage.getItem('token');
@@ -36,7 +37,6 @@ export class AppComponent implements OnInit, OnChanges, AfterViewInit {
   			this.tokenEmail = this.tokenDecoded['email'];
   			this.tokenID = this.tokenDecoded['_id'];
   		}
-  		console.log(this.isLogged);
 	}
 
 	logout(){
@@ -44,9 +44,9 @@ export class AppComponent implements OnInit, OnChanges, AfterViewInit {
 		this.router.navigate(['/'])
 	}
 
-	ngOnChanges(){
-		
-	}
+	ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
+   console.log(localStorage.getItem('token'))
+  }
 
   ngOnInit(){
   	console.log('initialize')

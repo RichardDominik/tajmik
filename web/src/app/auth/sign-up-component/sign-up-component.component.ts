@@ -23,6 +23,7 @@ export class SignUpComponentComponent {
 					if(res.success){
 						this.authService.saveToken(res.token);
 						this.router.navigate(['/private']);
+						location.reload();
 					}else{
 						this.error = res.msg;
 					}

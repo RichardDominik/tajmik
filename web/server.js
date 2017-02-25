@@ -10,9 +10,6 @@ let jwt = require('jwt-simple');
 let validator = require('validator');
 let assert = require('assert');
 let  jwtDecode = require('jwt-decode');
-let mongo = require('mongodb');
-let fs = require('fs');
-let Grid = require('gridfs-stream');
 
 // database config
 let config = require('./config/database');
@@ -40,7 +37,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 db.once('open', () => {
     console.log('Connected to MongoDB');
-    let gfs = Grid(db, mongo);
+   
     //Profiles
     require('./routes/profiles.server.routes.js')(app);
     //Tasks
