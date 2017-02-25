@@ -1,11 +1,11 @@
 var Event = require('../models/event.js');
-let mongo = require('mongodb');
-let fs = require('fs');
-let Grid = require('gridfs-stream');
+//let mongo = require('mongodb');
+//let fs = require('fs');
+//let Grid = require('gridfs-stream');
 
 module.exports = function(app) {
 
-	let gfs = Grid(db, mongo);
+	//let gfs = Grid(db, mongo);
 
 	// post events to DB
 	app.post('/api/events', function(req, res){
