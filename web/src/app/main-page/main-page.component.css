@@ -111,6 +111,28 @@
 	margin-top: 30px;
 }
 
+.android {
+	width: 100%;
+	min-height: 75px;
+	max-height: auto;
+	background-color: #D3393B;
+	color: #fff;
+}
+
+.adroid a {
+	color: #02A8F3;
+}
+
+.android a:hover, a:visited, a:focus, a:active {
+	text-decoration: none;
+}
+
+.android h4 {
+	font-weight: 200;
+	margin-top: 25px;
+	text-align: center;
+}
+
 .our-app {
 	width: 100%;
 	min-height: 500px;

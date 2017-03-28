@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="328px" height="331px" viewBox="0 0 328 331" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#4ADC94" offset="0%"></stop>
+            <stop stop-color="#20D7AF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="63.5087801%" y1="159.979787%" x2="137.549036%" y2="6.98946574%" id="linearGradient-2">
+            <stop stop-color="#4ADC94" offset="0%"></stop>
+            <stop stop-color="#20D7AF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Icon" transform="translate(-77.000000, -75.000000)" stroke-width="31">
+            <g id="Group" transform="translate(264.264972, 240.443681) rotate(719.514465) translate(-264.264972, -240.443681) translate(93.264972, 90.443681)">
+                <path d="M270.179329,61.5572222 C242.977857,24.4283062 199.055109,0.318754286 149.501274,0.318754286 C66.9347039,0.318754286 0.00127394853,67.2521842 0.00127394853,149.818754 C0.00127394853,232.385324 66.9347039,299.318754 149.501274,299.318754" id="Oval" stroke="url(#linearGradient-1)" stroke-dasharray="6,4"></path>
+                <path d="M312.944541,87.7753482 C230.377971,87.7753482 163.444541,154.708778 163.444541,237.275348 C163.444541,247.828382 164.537967,258.126032 166.617706,268.061187" id="Oval-Copy" stroke="url(#linearGradient-2)" stroke-dasharray="30,60,30,60" transform="translate(238.194541, 177.918267) scale(-1, -1) rotate(1417.969971) translate(-238.194541, -177.918267) "></path>
+                <polyline id="Path-2-Copy-2" stroke="url(#linearGradient-1)" points="92.0012739 114.747004 156.870977 179.616706 270.168929 66.3187543"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
