@@ -2,6 +2,8 @@
 
 Web and mobile Time Management Application
 
+Project is deprecated !
+
 ## Technologies:
 ### Web:
  * Angular 2 
