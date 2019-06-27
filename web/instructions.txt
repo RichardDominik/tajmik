@@ -1,7 +1,0 @@
-npm install
-mongod
-node server.js
-npm start
-
-
-visit localhost:4200

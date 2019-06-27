@@ -17,10 +17,15 @@ Web and mobile Time Management Application
  * MongoDB
 
 ## Running locally
-```bash
-	`npm install` for install all dependencies. 
-	`monngod` for running database.
-	`node server.js` for running server.
-	`npm start` for running angular.
-	Navigate to `http://localhost:4200/`.
+```console
+npm install
+monngod
+node server.js
+npm start
 ```
+Navigate to http://localhost:4200/.
+
+## Screenshots 
+
+![Screenshot-mobile](./images/tajmik-mobile.jpg)
+![Screenshot-desktop](./images/laptop.png)
